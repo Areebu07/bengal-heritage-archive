@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bengal Heritage Archive</title>
+<title>Waymark Project · Bengal Heritage Archive</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="A volunteer-run reading room for Bengal and Bangladesh history: public-domain books, family records held with consent, and a plain-language guide to Bangladeshi civil documents for the diaspora.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -154,13 +154,169 @@ details p { margin-top: .5rem; }
 
 footer { border-top: 1px solid var(--rule); }
 footer .wrap { padding-block: 2rem; display: grid; gap: .5rem; font-size: .9rem; color: var(--ink-soft); }
+
+/* Language and theme controls. The Google Translate banner and tooltip are hidden. */
+.tools { display: flex; align-items: center; gap: .5rem; }
+.tools select, .tools button {
+  font: inherit; font-size: .85rem; color: var(--ink); background: var(--card);
+  border: 1px solid var(--rule); border-radius: 4px; padding: .25rem .5rem; min-height: 2rem; cursor: pointer;
+}
+.tools select { max-width: 11rem; }
+#gt-host { position: absolute; left: -9999px; top: 0; height: 0; overflow: hidden; }
+body { top: 0 !important; position: static !important; }
+.skiptranslate iframe, iframe.skiptranslate, .goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb-OEVmcd, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf, #goog-gt-tt, .goog-tooltip, .goog-tooltip:hover { display: none !important; visibility: hidden !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
 </style>
 </head>
 <body>
 
+<div id="gt-host" aria-hidden="true"><div id="google_translate_element"></div></div>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top">Bengal Heritage Archive</a>
+    <a class="brand" href="#top">Waymark Project <span style="font-weight:400">· Bengal Heritage Archive</span></a>
+    <div class="tools notranslate" translate="no">
+      <label for="lang" class="visually-hidden" style="position:absolute;left:-9999px">Language</label>
+      <select id="lang" aria-label="Language" translate="no">
+        <optgroup label="Suggested">
+          <option value="en" selected>English</option>
+          <option value="bn">বাংলা</option>
+        </optgroup>
+        <optgroup label="All languages (Google Translate)">
+          <option value="af">Afrikaans</option>
+          <option value="sq">Shqip</option>
+          <option value="am">አማርኛ</option>
+          <option value="ar">العربية</option>
+          <option value="hy">Հայերեն</option>
+          <option value="as">অসমীয়া</option>
+          <option value="ay">Aymara</option>
+          <option value="az">Azərbaycanca</option>
+          <option value="bm">Bamanankan</option>
+          <option value="eu">Euskara</option>
+          <option value="be">Беларуская</option>
+          <option value="bho">भोजपुरी</option>
+          <option value="bs">Bosanski</option>
+          <option value="bg">Български</option>
+          <option value="ca">Català</option>
+          <option value="ceb">Cebuano</option>
+          <option value="ny">Chichewa</option>
+          <option value="zh-CN">中文（简体）</option>
+          <option value="zh-TW">中文（繁體）</option>
+          <option value="co">Corsu</option>
+          <option value="hr">Hrvatski</option>
+          <option value="cs">Čeština</option>
+          <option value="da">Dansk</option>
+          <option value="dv">ދިވެހި</option>
+          <option value="doi">डोगरी</option>
+          <option value="nl">Nederlands</option>
+          <option value="eo">Esperanto</option>
+          <option value="et">Eesti</option>
+          <option value="ee">Eʋegbe</option>
+          <option value="tl">Filipino</option>
+          <option value="fi">Suomi</option>
+          <option value="fr">Français</option>
+          <option value="fy">Frysk</option>
+          <option value="gl">Galego</option>
+          <option value="ka">ქართული</option>
+          <option value="de">Deutsch</option>
+          <option value="el">Ελληνικά</option>
+          <option value="gn">Avañe'ẽ</option>
+          <option value="gu">ગુજરાતી</option>
+          <option value="ht">Kreyòl ayisyen</option>
+          <option value="ha">Hausa</option>
+          <option value="haw">ʻŌlelo Hawaiʻi</option>
+          <option value="iw">עברית</option>
+          <option value="hi">हिन्दी</option>
+          <option value="hmn">Hmoob</option>
+          <option value="hu">Magyar</option>
+          <option value="is">Íslenska</option>
+          <option value="ig">Igbo</option>
+          <option value="ilo">Ilokano</option>
+          <option value="id">Bahasa Indonesia</option>
+          <option value="ga">Gaeilge</option>
+          <option value="it">Italiano</option>
+          <option value="ja">日本語</option>
+          <option value="jw">Basa Jawa</option>
+          <option value="kn">ಕನ್ನಡ</option>
+          <option value="kk">Қазақша</option>
+          <option value="km">ខ្មែរ</option>
+          <option value="rw">Kinyarwanda</option>
+          <option value="gom">कोंकणी</option>
+          <option value="ko">한국어</option>
+          <option value="kri">Krio</option>
+          <option value="ku">Kurdî</option>
+          <option value="ckb">کوردیی ناوەندی</option>
+          <option value="ky">Кыргызча</option>
+          <option value="lo">ລາວ</option>
+          <option value="la">Latina</option>
+          <option value="lv">Latviešu</option>
+          <option value="ln">Lingála</option>
+          <option value="lt">Lietuvių</option>
+          <option value="lg">Luganda</option>
+          <option value="lb">Lëtzebuergesch</option>
+          <option value="mk">Македонски</option>
+          <option value="mai">मैथिली</option>
+          <option value="mg">Malagasy</option>
+          <option value="ms">Bahasa Melayu</option>
+          <option value="ml">മലയാളം</option>
+          <option value="mt">Malti</option>
+          <option value="mi">Māori</option>
+          <option value="mr">मराठी</option>
+          <option value="mni-Mtei">ꯃꯤꯇꯩꯂꯣꯟ</option>
+          <option value="lus">Mizo ṭawng</option>
+          <option value="mn">Монгол</option>
+          <option value="my">မြန်မာ</option>
+          <option value="ne">नेपाली</option>
+          <option value="no">Norsk</option>
+          <option value="or">ଓଡ଼ିଆ</option>
+          <option value="om">Afaan Oromoo</option>
+          <option value="ps">پښتو</option>
+          <option value="fa">فارسی</option>
+          <option value="pl">Polski</option>
+          <option value="pt">Português</option>
+          <option value="pa">ਪੰਜਾਬੀ</option>
+          <option value="qu">Runasimi</option>
+          <option value="ro">Română</option>
+          <option value="ru">Русский</option>
+          <option value="sm">Gagana Samoa</option>
+          <option value="sa">संस्कृतम्</option>
+          <option value="gd">Gàidhlig</option>
+          <option value="nso">Sepedi</option>
+          <option value="sr">Српски</option>
+          <option value="st">Sesotho</option>
+          <option value="sn">chiShona</option>
+          <option value="sd">سنڌي</option>
+          <option value="si">සිංහල</option>
+          <option value="sk">Slovenčina</option>
+          <option value="sl">Slovenščina</option>
+          <option value="so">Soomaaliga</option>
+          <option value="es">Español</option>
+          <option value="su">Basa Sunda</option>
+          <option value="sw">Kiswahili</option>
+          <option value="sv">Svenska</option>
+          <option value="tg">Тоҷикӣ</option>
+          <option value="ta">தமிழ்</option>
+          <option value="tt">Татарча</option>
+          <option value="te">తెలుగు</option>
+          <option value="th">ไทย</option>
+          <option value="ti">ትግርኛ</option>
+          <option value="ts">Xitsonga</option>
+          <option value="tr">Türkçe</option>
+          <option value="tk">Türkmençe</option>
+          <option value="ak">Twi</option>
+          <option value="uk">Українська</option>
+          <option value="ur">اردو</option>
+          <option value="ug">ئۇيغۇرچە</option>
+          <option value="uz">Oʻzbekcha</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="cy">Cymraeg</option>
+          <option value="xh">isiXhosa</option>
+          <option value="yi">ייִדיש</option>
+          <option value="yo">Yorùbá</option>
+          <option value="zu">isiZulu</option>
+        </optgroup>
+      </select>
+      <button type="button" id="theme" aria-label="Switch between light and dark mode">Dark mode</button>
+    </div>
     <nav aria-label="Sections">
       <ul>
         <li><a href="#about">About</a></li>
@@ -169,6 +325,8 @@ footer .wrap { padding-block: 2rem; display: grid; gap: .5rem; font-size: .9rem;
         <li><a href="#timeline">Timeline</a></li>
         <li><a href="#guide">Documents guide</a></li>
         <li><a href="#standards">Standards</a></li>
+        <li><a href="#glossary">Glossary</a></li>
+        <li><a href="#privacy">Privacy</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -179,7 +337,7 @@ footer .wrap { padding-block: 2rem; display: grid; gap: .5rem; font-size: .9rem;
 <main id="top">
   <section class="hero">
     <div class="wrap">
-      <p class="label">A volunteer-run reading room · Est. 2026</p>
+      <p class="label">A Waymark Project program · Est. 2026</p>
       <h1>Bengal Heritage <em>Archive</em></h1>
       <p class="bn" lang="bn">বেঙ্গল হেরিটেজ আর্কাইভ</p>
       <p class="lede">A small, careful collection of Bengal's written past: full-text books you can read and download here, a catalog of district gazetteers, censuses and ballads held in free digital libraries, family records kept with the family's consent, and a plain guide for diaspora Bangladeshis sorting out birth, NID and land papers.</p>
@@ -210,7 +368,23 @@ footer .wrap { padding-block: 2rem; display: grid; gap: .5rem; font-size: .9rem;
       </div>
       <div class="prose stack">
         <h3>Who runs it</h3>
-        <p>The archive is run by one volunteer, with no paid staff and no funding. It is not yet a registered organization. We are working toward a small board and a formal structure, and will say so here when that changes.</p>
+        <p>The Bengal Heritage Archive is the first program of the Waymark Project, an independent, volunteer-run project; incorporation in progress. It is run by one volunteer, Areeb <span class="placeholder">full name</span>, with no paid staff and no funding. We are working toward a small board and will say so here when that changes.</p>
+        <p>Questions, corrections and offers of papers go to <a href="mailto:archive@areebuzzaman.com">archive@areebuzzaman.com</a>.</p>
+        <h3>What we do and don't do</h3>
+        <div class="guide">
+          <article><h3>We do</h3><ul>
+            <li>Catalog and host public-domain books about Bengal, with notes on their context.</li>
+            <li>Explain which official office handles which Bangladeshi civil document.</li>
+            <li>Scan and return family papers, and publish only what the family approves.</li>
+          </ul></article>
+          <article><h3>We don't</h3><ul>
+            <li>Give legal advice, or act as an agent or lawyer for anyone.</li>
+            <li>Handle fees, original documents, ID numbers or payments.</li>
+            <li>Accept donations, sell anything, or track visitors.</li>
+          </ul></article>
+        </div>
+        <h3>Sources and partners</h3>
+        <p>We have no formal partnerships or sponsors yet. Our catalog depends on the free scans of the <a href="https://archive.org" rel="noopener">Internet Archive</a>, the Digital Library of India (hosted on the Internet Archive) and <a href="https://www.gutenberg.org" rel="noopener">Project Gutenberg</a>. If you run a library, archive or community group and want to work together, write to us.</p>
       </div>
     </div>
   </section>
@@ -281,6 +455,7 @@ footer .wrap { padding-block: 2rem; display: grid; gap: .5rem; font-size: .9rem;
       <div class="prose stack">
         <p class="label">Diaspora help desk</p>
         <h2>A starter guide to Bangladeshi civil documents</h2>
+        <p><b>Help desk terms:</b> this guide is free and is not legal advice. We never ask for ID numbers, scans of IDs or payments. Please do not email them to us.</p>
         <p>Many people come to old records because of a present-day paperwork problem: a missing birth certificate, an NID that doesn't match a passport, or a parent's land that needs to pass to heirs. These are the official starting points.</p>
       </div>
       <p class="callout">This guide is general information, not legal advice. Fees, forms and rules change. Always confirm the current process with the official site or with your nearest Bangladesh embassy or consulate before you pay or travel.</p>
@@ -338,7 +513,21 @@ footer .wrap { padding-block: 2rem; display: grid; gap: .5rem; font-size: .9rem;
           <li>We leave out names, addresses and faces of living people unless they agree in writing.</li>
           <li>You can withdraw an item at any time, and we take it down.</li>
         </ul>
-        <p>A short donor consent form is being prepared. Until it is ready, please write to us first.</p>
+        <p>Please write to us before sending anything. A draft of the consent form we use is below. To correct or remove something we show, whether you are the donor, a descendant or a person named in it, write to <a href="mailto:archive@areebuzzaman.com">archive@areebuzzaman.com</a> with the call number. We hide the item first and look into it after.</p>
+        <details><summary>Draft donor consent form (template, not legal advice)</summary>
+          <div class="stack" style="padding:.5rem 0">
+            <p><b>Waymark Project, Bengal Heritage Archive: donor consent form</b></p>
+            <p>1. <b>What I am lending or giving.</b> I describe each item (type, date, and where it came from) on an attached list.</p>
+            <p>2. <b>My rights.</b> I own the items or am authorized to share them. I keep ownership and copyright. I give the archive permission to scan, catalog and show the items I approve below.</p>
+            <p>3. <b>Access.</b> For each item I choose: Open (anyone may read it), By request (shared on request for research), or Closed (listed in the catalog, not shown).</p>
+            <p>4. <b>Other people.</b> I have told the archive about living people named or pictured in the items. Names, addresses and faces of living people stay hidden unless they agree in writing.</p>
+            <p>5. <b>Originals.</b> The archive returns all originals. It does not sell or auction them.</p>
+            <p>6. <b>Withdrawal.</b> I can ask the archive to remove any item from public view at any time, and it will do so promptly.</p>
+            <p>7. <b>Credit.</b> I choose how the family is credited, or whether it is credited at all.</p>
+            <p>Name: ______________ Date: ______________ Contact: ______________ Signature: ______________</p>
+            <p class="note">This template has not been reviewed by a lawyer. It will be reviewed before the archive accepts papers.</p>
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -393,14 +582,59 @@ footer .wrap { padding-block: 2rem; display: grid; gap: .5rem; font-size: .9rem;
       <div class="prose stack">
         <h3>How to cite this archive</h3>
         <p>Cite the original work first, then the archive's call number and the address of the page you used. For example:</p>
-        <p class="cite">Allen, B. C. <i>Dacca</i>. Eastern Bengal and Assam District Gazetteers, 1912. Bengal Heritage Archive, call no. BHA·GAZ·1912·01. Scan: archive.org/details/daccaallen00alle. Accessed <span class="placeholder">date</span>.</p>
+        <p class="cite">Allen, B. C. <i>Dacca</i>. Eastern Bengal and Assam District Gazetteers, 1912. Waymark Project, Bengal Heritage Archive, call no. BHA·GAZ·1912·01. Scan: archive.org/details/daccaallen00alle. Accessed <span class="placeholder">date</span>.</p>
+        <p>To cite the site itself: Waymark Project. <i>Bengal Heritage Archive</i>. Accessed <span class="placeholder">date</span>. <span class="placeholder">site address</span>.</p>
         <p>Call numbers are made of the theme (GAZ, HIS, MAP, SOC, LIT, READ or FAM), the year of publication, and a running number.</p>
       </div>
       <div class="prose stack">
         <h3>Status and plans</h3>
-        <p>The archive is an independent, volunteer-run project. We plan to add more scanned volumes after checking each one, a donor consent form for family papers, and a short glossary of Bengali land and legal terms. If the project later incorporates and is recognized as a charity, this page will say so, along with who sits on the board.</p>
+        <p>The archive is an independent, volunteer-run project. We plan to add more scanned volumes after checking each one, a lawyer-reviewed donor consent form for family papers, and more glossary entries. If the project later incorporates and is recognized as a charity, this page will say so, along with who sits on the board.</p>
         <h3>Accessibility</h3>
-        <p>The site is plain HTML with no tracking and no cookies. It works with a keyboard and a screen reader, adjusts to light and dark settings, and scales to phone screens. If something does not work for you, tell us and we will fix it.</p>
+        <p>The site is plain HTML. It works with a keyboard and a screen reader, adjusts to light and dark settings, and scales to phone screens. The hosted PDFs are page scans, and their machine-read text may contain errors. If something does not work for you, write to <a href="mailto:archive@areebuzzaman.com">archive@areebuzzaman.com</a> and we will fix it or send you the item in another form.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="stitch">
+
+  <section id="glossary">
+    <div class="wrap">
+      <div class="prose stack">
+        <p class="label">Glossary</p>
+        <h2>Terms you will meet in old land and legal records</h2>
+        <p>Spellings vary in English sources. Ask the local land office if a term's meaning in your family's district is unclear.</p>
+        <dl class="stack">
+          <div><dt><b>Bigha, kani</b></dt><dd style="margin:0">Traditional land-area units. Their size varied by region, so a record in bigha needs a local conversion.</dd></div>
+          <div><dt><b>Dag</b></dt><dd style="margin:0">A numbered plot on a survey map. Land records cite the dag number.</dd></div>
+          <div><dt><b>Dolil</b></dt><dd style="margin:0">A deed, such as a sale or gift of land.</dd></div>
+          <div><dt><b>Jote, raiyat</b></dt><dd style="margin:0">A cultivating tenant's holding, and the tenant who held it.</dd></div>
+          <div><dt><b>Khatian</b></dt><dd style="margin:0">A record of rights: who owns or holds which plots in a village. Several survey series exist (CS, SA, RS).</dd></div>
+          <div><dt><b>Mouza</b></dt><dd style="margin:0">The basic revenue village, with its own survey map and records.</dd></div>
+          <div><dt><b>Namjari (mutation)</b></dt><dd style="margin:0">Updating the land record after a sale or inheritance so the new owner's name appears.</dd></div>
+          <div><dt><b>Porcha</b></dt><dd style="margin:0">A certified copy of a khatian. Land offices issue it, and the eporcha.gov.bd portal serves it online.</dd></div>
+          <div><dt><b>Taluk</b></dt><dd style="margin:0">A land holding or sub-estate, often below a zamindar.</dd></div>
+          <div><dt><b>Thana, upazila</b></dt><dd style="margin:0">The police-station area, now the upazila, used to place a village within a district.</dd></div>
+          <div><dt><b>Zamindar</b></dt><dd style="margin:0">A landlord who collected revenue for the government under the Permanent Settlement of 1793.</dd></div>
+          <div><dt><b>Subah, Diwani</b></dt><dd style="margin:0">A Mughal province, and the right to collect its revenue, which the East India Company received in 1765.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <hr class="stitch">
+
+  <section id="privacy">
+    <div class="wrap">
+      <div class="prose stack">
+        <p class="label">Privacy</p>
+        <h2>What we collect: nothing from the site</h2>
+        <p>This site has no analytics, no cookies, no forms and no ads. Our host may keep ordinary server logs, as any web host does. If you email us, we use your message only to reply, and we do not share it. Please do not email ID numbers, financial details or scans of identity documents.</p>
+        <h3>Last updated and changes</h3>
+        <p><b>Last updated:</b> 24 October 2026</p>
+        <ul class="stack" style="padding-left:1.2rem;gap:.4rem">
+          <li>24 Oct 2026: hosted PDFs for all Internet Archive catalog books; added glossary, privacy note, consent form draft and sources notes.</li>
+          <li>24 Oct 2026: first version of the site.</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -418,7 +652,7 @@ footer .wrap { padding-block: 2rem; display: grid; gap: .5rem; font-size: .9rem;
         <details><summary>Which books are hosted here, and which are links?</summary><p>Every Internet Archive book in the catalog has a copy hosted here as PDF files, and the five Reading room works are hosted too. Large books are split into parts of about 25 MB or less. The five Project Gutenberg entries are ebooks, so they link to Gutenberg. Titles always link to the original scan, which is the full-quality copy.</p></details>
         <details><summary>Why are some family papers closed?</summary><p>Unpublished letters and diaries belong to the writer's heirs, and they can mention people who are still alive. We list them so researchers know they exist, and open them only with the family's approval.</p></details>
         <details><summary>Can you fix my birth certificate or NID for me?</summary><p>No. We are volunteers, not lawyers or agents, and we never handle fees or original documents. We can point you to the right office and explain the terms on an old record.</p></details>
-        <details><summary>Is this a registered charity?</summary><p>Not yet. It is an independent, volunteer-run project. We don't accept donations, and nothing given to us is tax-deductible.</p></details>
+        <details><summary>Is this a registered charity?</summary><p>Not yet. Waymark Project is an independent, volunteer-run project. We don't accept donations, and nothing given to us is tax-deductible.</p></details>
         <details><summary>I found a mistake in a catalog card.</summary><p>Thank you. Write to us with the call number on the card and we will correct it.</p></details>
       </div>
     </div>
@@ -431,7 +665,7 @@ footer .wrap { padding-block: 2rem; display: grid; gap: .5rem; font-size: .9rem;
       <p class="label">Contact</p>
       <h2>Write to the archive</h2>
       <p class="prose">For copies of items marked by request, offers of family papers, or corrections. We usually reply within a week.</p>
-      <p class="email" id="email">CONTACT_EMAIL</p>
+      <p class="email" id="email">archive@areebuzzaman.com</p>
       <button class="copy" id="copy" type="button">Copy address</button>
     </div>
   </section>
@@ -439,7 +673,7 @@ footer .wrap { padding-block: 2rem; display: grid; gap: .5rem; font-size: .9rem;
 
 <footer>
   <div class="wrap">
-    <p><b>Bengal Heritage Archive</b> <span class="placeholder">working name</span> is an independent, volunteer-run project. It is not a registered nonprofit and does not accept donations.</p>
+    <p><b>Waymark Project</b> and its first program, the <b>Bengal Heritage Archive</b>, are an independent, volunteer-run project; incorporation in progress. It is not a registered nonprofit and does not accept donations.</p>
     <p>Book scans come from the Internet Archive, the Digital Library of India and Project Gutenberg. Catalog descriptions are our own and may be reused with credit.</p>
   </div>
 </footer>
@@ -564,6 +798,7 @@ footer .wrap { padding-block: 2rem; display: grid; gap: .5rem; font-size: .9rem;
       access: "open", title: b[1], by: b[2], year: b[3], why: b[4], url: b[5], star: b[6], note: b[7],
       foot: [THEMES[b[0]], pg ? "Project Gutenberg" : "Internet Archive scan", "Public domain (pre-1931)"]
     });
+    node.insertBefore(el("p", "note", "Source and rights: " + (pg ? "Project Gutenberg ebook" : "Internet Archive item " + b[5].split("/").pop()) + ". Published " + b[3] + ", in the public domain in the United States."), node.querySelector(".foot"));
     var fl = FILES[b[5].split("/").pop()];
     if (fl) node.appendChild(fileButtons(b[1], fl));
     return { theme: b[0], node: node };
@@ -612,6 +847,45 @@ footer .wrap { padding-block: 2rem; display: grid; gap: .5rem; font-size: .9rem;
     } catch (e) { selectEmail(); }
   });
   function selectEmail() { var r = document.createRange(); r.selectNodeContents(email); var s = getSelection(); s.removeAllRanges(); s.addRange(r); copy.textContent = "Press Ctrl+C to copy"; }
+
+  // Theme toggle: follows the system until the visitor chooses.
+  var root = document.documentElement, themeBtn = document.getElementById("theme");
+  function isDark() { var t = root.getAttribute("data-theme"); return t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; }
+  function syncTheme() { themeBtn.textContent = isDark() ? "Light mode" : "Dark mode"; }
+  try { var saved = localStorage.getItem("theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
+  themeBtn.addEventListener("click", function () {
+    var next = isDark() ? "light" : "dark"; root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    syncTheme();
+  });
+  syncTheme();
+
+  // Language: our own select drives the hidden Google Translate widget, so the language names never get translated.
+  var langSel = document.getElementById("lang");
+  function setLang(code) {
+    var combo = document.querySelector(".goog-te-combo");
+    if (!combo) return false;
+    combo.value = code === "en" ? "" : code;
+    combo.dispatchEvent(new Event("change"));
+    return true;
+  }
+  var wanted = null;
+  try { wanted = localStorage.getItem("lang"); } catch (e) {}
+  if (wanted) langSel.value = wanted;
+  langSel.addEventListener("change", function () {
+    try { localStorage.setItem("lang", langSel.value); } catch (e) {}
+    if (!setLang(langSel.value)) wanted = langSel.value;
+  });
+  window.googleTranslateElementInit = function () {
+    new google.translate.TranslateElement({ pageLanguage: "en", autoDisplay: false }, "google_translate_element");
+    var tries = 0, t = setInterval(function () {
+      if (setLang(wanted && wanted !== "en" ? wanted : "en") || ++tries > 40) clearInterval(t);
+    }, 150);
+    if (!wanted || wanted === "en") clearInterval(t);
+  };
+  var gt = document.createElement("script");
+  gt.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"; gt.async = true;
+  document.head.appendChild(gt);
 })();
 </script>
 </body>

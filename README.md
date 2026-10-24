@@ -3,10 +3,17 @@
 A single static page (`index.html`, no build step) plus the PDFs in `books/` (about 945 MB in 67 files, each under 25 MB so they fit Cloudflare Pages' 25 MiB per-file cap and GitHub's 100 MB limit). `books/catalog/` holds the hosted copies of the Internet Archive catalog books; long books are split into `-partN.pdf` files. A repo this size is near GitHub's recommended 1 GB; Cloudflare Pages handles it, but keep the repo public and avoid re-committing PDFs. Fonts load from Google Fonts; everything else is inline.
 
 ## Before going live
-- Replace `CONTACT_EMAIL` with a project-only address (one place in `index.html`).
+- Contact email is archive@areebuzzaman.com (set).
+- Fill the remaining placeholders: founder's full name, the "how it started" note, the site address and access date in the citation.
 - Confirm the working name "Bengal Heritage Archive" isn't already taken (search the name, IRS Tax Exempt Organization Search, Maryland SDAT business search).
 - Keep the footer wording ("independent, volunteer-run project ... not a registered nonprofit") until the organization is incorporated and IRS-recognized.
 - Family papers stay "Closed" and unnamed until the family signs off. No photos of living people.
+
+## Address
+Best: a free subdomain of an existing domain, such as `waymark.areebuzzaman.com`, pointed at the Cloudflare project (Custom domains). Otherwise use the free `<project>.pages.dev` or `<project>.workers.dev` address.
+
+## Language and theme
+The language menu drives the Google Translate widget, with its banner hidden and the menu's own language names kept untranslated. The light/dark button remembers the choice in the browser. Both are in `index.html`.
 
 ## Host it free on Cloudflare Pages (recommended)
 1. Put `index.html`, `robots.txt` and the `books/` folder in a GitHub repo (for example `bengal-heritage-archive`).
