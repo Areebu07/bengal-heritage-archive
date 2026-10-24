@@ -122,7 +122,7 @@
     var pg = b[5].indexOf("gutenberg") > -1;
     var node = card({
       call: "BHA·" + b[0] + "·" + b[3] + "·" + String(seq[b[0]]).padStart(2, "0"),
-      access: "open", title: b[1], by: b[2], year: b[3], why: b[4], url: b[5], star: b[6], note: b[7],
+      access: "open", title: b[1], by: b[2], year: b[3], why: b[4], url: FILES[b[5].split("/").pop()] ? null : b[5], star: b[6], note: b[7],
       foot: [THEMES[b[0]], pg ? "Project Gutenberg" : "Internet Archive scan", "Public domain (pre-1931)"],
       cover: COVERS[b[5].split("/").pop()]
     });
