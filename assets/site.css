@@ -245,3 +245,6 @@ a.path:hover { border-top-color: var(--ink); }
 a.path p { margin: 0; font-size: .95rem; color: var(--ink-soft); }
 nav a[aria-current="page"] { color: var(--ink); border-bottom: 2px solid var(--jute); padding-bottom: 2px; }
 main > section:first-child > .wrap { padding-top: clamp(2rem, 5vw, 3rem); }
+.program { font-family: var(--mono); font-size: .95rem; color: var(--ink-soft); }
+.program b { color: var(--ink); font-weight: 500; }
+.program span { font-family: var(--bangla); }
