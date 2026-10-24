@@ -303,7 +303,7 @@
        "Old deeds and land records name the mouza (revenue village) and plot numbers.",
        "Once you have a district, come back here and take the quiz again."].forEach(function (t) { ul.appendChild(el("li", null, t)); });
       res.appendChild(ul);
-      var b = el("div", "btns"); var a = el("a", "btn", "Open the documents guide"); a.href = "guide.html#guide"; b.appendChild(a); res.appendChild(b);
+      var b = el("div", "btns"); var a = el("a", "btn", "Open the records guide"); a.href = "guide.html#guide"; b.appendChild(a); res.appendChild(b);
       box.appendChild(res); box.appendChild(link("Start over", reset));
     }
     step1();

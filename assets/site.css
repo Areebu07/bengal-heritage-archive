@@ -282,3 +282,10 @@ main > section:first-child > .wrap { padding-top: clamp(2rem, 5vw, 3rem); }
   .bp-head { flex-direction: column; }
   .bp-cover { width: 120px; }
 }
+
+.docs { display: grid; max-width: 56rem; border: 1px solid var(--rule); border-radius: 3px; }
+.docs .row { display: grid; grid-template-columns: minmax(10rem, 1fr) 2fr; gap: 1rem; padding: .65rem .9rem; border-top: 1px solid var(--rule); min-width: 0; }
+.docs .row:first-child { border-top: 0; }
+.docs .row > span { min-width: 0; overflow-wrap: anywhere; }
+.docs .head { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); background: var(--chip); }
+@media (max-width: 36rem) { .docs .row { grid-template-columns: 1fr; gap: .15rem; } }
