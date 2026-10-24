@@ -35,3 +35,7 @@ Call numbers are generated from theme, year and order.
 
 ## Adding a PDF to the Reading room
 Copy the file into `books/` and add a row to the `READING` list in `index.html`. Only add works published in 1930 or earlier. Keep each file under 15 MB, or split it into parts. Family papers and anything newer stay out until written permission is on file.
+
+## Book overview pages
+
+Each catalog and reading-room title links to `book.html?id=...`, which `assets/site.js` renders from the book data and `assets/overviews.js`. To add a book, add its row to `BOOKS` in `site.js` and an entry (summary, contents, why it helps, cautions) to `overviews.js`, written from the book's own contents pages.

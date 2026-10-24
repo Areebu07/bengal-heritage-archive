@@ -6,11 +6,11 @@
   var BOOKS = [
     ["GAZ","Dacca (Eastern Bengal and Assam District Gazetteers)","B. C. Allen",1912,"The standard reference on Dhaka district: villages, trade, communities and history.",IA+"daccaallen00alle",1],
     ["GAZ","Chittagong","L. S. S. O'Malley",1908,"The port city and its hinterland, with settlement history.",IA+"in.ernet.dli.2015.228204"],
-    ["GAZ","Chittagong Hill Tracts","Eastern Bengal and Assam government",1909,"Hill peoples and frontier administration.",IA+"dli.ministry.07913"],
-    ["GAZ","Noakhali","Eastern Bengal and Assam government",1911,"A district many diaspora families trace their roots to.",IA+"dli.ministry.07917"],
-    ["GAZ","Tippera (Comilla)","Eastern Bengal and Assam government",1910,"Another large source of emigration, with village-level detail.",IA+"dli.ministry.07920"],
-    ["GAZ","Bogra","Eastern Bengal and Assam government",1910,"North Bengal, including the antiquities of Mahasthangarh.",IA+"dli.ministry.07911"],
-    ["GAZ","Rangpur","Eastern Bengal and Assam government",1911,"Agrarian life and villages of the north.",IA+"dli.ministry.07919"],
+    ["GAZ","Chittagong Hill Tracts","H. Sneyd-Hutchinson",1909,"Hill peoples and frontier administration.",IA+"dli.ministry.07913"],
+    ["GAZ","Noakhali","J. E. Webster",1911,"A district many diaspora families trace their roots to.",IA+"dli.ministry.07917"],
+    ["GAZ","Tippera (Comilla)","J. E. Webster",1910,"Another large source of emigration, with village-level detail.",IA+"dli.ministry.07920"],
+    ["GAZ","Bogra","J. N. Gupta",1910,"North Bengal, including the antiquities of Mahasthangarh.",IA+"dli.ministry.07911"],
+    ["GAZ","Rangpur","J. A. Vas",1911,"Agrarian life and villages of the north.",IA+"dli.ministry.07919"],
     ["GAZ","Dinajpur","Eastern Bengal and Assam government",1912,"Temples, early settlement and land in North Bengal.",IA+"in.ernet.dli.2015.228205"],
     ["GAZ","Mymensingh (Bengal District Gazetteers)","F. A. Sachse",1917,"The district behind the Mymensingh ballads.",IA+"dli.ministry.07413"],
     ["GAZ","Khulna","L. S. S. O'Malley",1908,"Delta villages on the edge of the Sundarbans.",IA+"dli.ministry.07400"],
@@ -27,13 +27,13 @@
     ["HIS","A Sketch of the Topography and Statistics of Dacca","James Taylor",1840,"An early survey of Dhaka's neighbourhoods, trades and people.",IA+"asketchtopograp00taylgoog"],
     ["HIS","Dacca: The Romance of an Eastern Capital","F. B. Bradley-Birt",1906,"A readable city history with period photographs.",IA+"romanceofeastern00brad"],
     ["HIS","The District of Bakarganj: Its History and Statistics","Henry Beveridge",1876,"Local history of the Barisal region.",IA+"districtofbkar00beve"],
-    ["HIS","Ain-i-Akbari, Vol. 1 (trans. H. Blochmann)","Abu'l-Fazl",1873,"The Mughal imperial survey, including the Subah of Bengal.",IA+"india.history.resource.323"],
+    ["HIS","Ain-i-Akbari, Vol. 1 (trans. H. Blochmann)","Abu'l-Fazl",1873,"Akbar's court, treasury, mint and army. The Bengal chapter is in Volume 2.",IA+"india.history.resource.323"],
     ["MAP","A Bengal Atlas","James Rennell",1781,"The first detailed survey maps of Bengal, made 1764 to 1777.",IA+"bim_eighteenth-century_a-bengal-atlas-containi_rennell-james_1781"],
     ["MAP","Census of India 1901, Vol. 6, Pt. 1: Bengal report","Census of India",1902,"Population, religion, language and caste by district. Good for placing family origins.",IA+"in.gov.ignca.30990"],
     ["MAP","Census of India 1911, Vol. 5: Bengal, Bihar and Orissa, and Sikkim, Pt. 1 (Report)","Census of India",1913,"The next census, ten years on. The tables are in Part 2.",IA+"india.history.resource.92556"],
     ["MAP","Census of India 1911, Vol. 5: Bengal, Pt. 2 (Tables)","Census of India",1913,"District and thana tables that go with the 1911 report.",IA+"india.history.resource.92566"],
     ["SOC","The Tribes and Castes of Bengal: Anthropometric Data, Vol. 2","H. H. Risley",1891,"Body measurements and tables for Bengal's communities, collected by a colonial official. The companion volume holds the glossary of castes.",IA+"tribesandcastes00rislgoog",0,"Built on colonial race science that is now discredited. Useful as a record of what officials believed."],
-    ["SOC","The Indian Musalmans","W. W. Hunter",1871,"A colonial official's account of Bengal's Muslim communities.",IA+"indianmusalmans00huntgoog",0,"A primary source on British attitudes. Read it critically. This scan appears incomplete: it ends around page 106, so check the original."],
+    ["SOC","Indian Musalmans","W. Nassau Lees",1871,"Letters to The Times and articles on Muslim education in British India, with Macaulay's Minute.",IA+"indianmusalmans00huntgoog",0,"A primary source on British attitudes in 1871. Read it critically. Despite its address on the Internet Archive, this is not W. W. Hunter's book of the same title."],
     ["SOC","Notes on the Races, Castes and Trades of Eastern Bengal","James Wise",1883,"Community-level ethnography of eastern Bengal.",IA+"notes-on-the-races-castes-and-trades-of-eastern-bengal-by-james-wise-ed-1883",0,"Shares the colonial framing of Risley's work."],
     ["LIT","History of Bengali Language and Literature","Dinesh Chandra Sen",1911,"The foundational survey of Bengali literature, written in English.",IA+"historyofbengali00sendrich",1],
     ["LIT","The Folk-Literature of Bengal","Dinesh Chandra Sen",1920,"Folk tales, rhymes and songs collected for Calcutta University.",IA+"folkliteratureof00send"],
@@ -46,7 +46,7 @@
     ["LIT","The Hungry Stones and Other Stories","Rabindranath Tagore",1916,"Short stories set in rural and small-town Bengal.",PG+"2518"]
   ];
   // Hosted copies of the catalog scans, keyed by Internet Archive id. [label, path, size]
-  var FILES = {"daccaallen00alle":[["PDF","books/catalog/allen-dacca-gazetteer-1912.pdf","14.8 MB"]],"in.ernet.dli.2015.228204":[["PDF","books/catalog/chittagong-gazetteer-1908.pdf","17.5 MB"]],"dli.ministry.07913":[["PDF","books/catalog/chittagong-hill-tracts-gazetteer-1909.pdf","5.7 MB"]],"dli.ministry.07917":[["Part 1","books/catalog/noakhali-gazetteer-1911-part1.pdf","11.9 MB"],["Part 2","books/catalog/noakhali-gazetteer-1911-part2.pdf","14.4 MB"]],"dli.ministry.07920":[["PDF","books/catalog/tippera-gazetteer-1910.pdf","7.2 MB"]],"dli.ministry.07911":[["PDF","books/catalog/bogra-gazetteer-1910.pdf","9.7 MB"]],"dli.ministry.07919":[["PDF","books/catalog/rangpur-gazetteer-1911.pdf","8.8 MB"]],"in.ernet.dli.2015.228205":[["PDF","books/catalog/dinajpur-gazetteer-1912.pdf","14.1 MB"]],"dli.ministry.07413":[["Part 1","books/catalog/sachse-mymensingh-gazetteer-1917-part1.pdf","21.8 MB"],["Part 2","books/catalog/sachse-mymensingh-gazetteer-1917-part2.pdf","21.2 MB"],["Part 3","books/catalog/sachse-mymensingh-gazetteer-1917-part3.pdf","21.5 MB"]],"dli.ministry.07400":[["PDF","books/catalog/omalley-khulna-gazetteer-1908.pdf","11.1 MB"]],"dli.ministry.07417":[["PDF","books/catalog/omalley-pabna-gazetteer-1923.pdf","5.8 MB"]],"dli.csl.3031":[["PDF","books/catalog/omalley-rajshahi-gazetteer-1916.pdf","9.5 MB"]],"dli.ministry.07915":[["PDF","books/catalog/gruning-jalpaiguri-gazetteer-1911.pdf","8.4 MB"]],"dli.ministry.07411":[["PDF","books/catalog/omalley-murshidabad-gazetteer-1914.pdf","12.3 MB"]],"dli.ministry.07416":[["PDF","books/catalog/garrett-nadia-gazetteer-1910.pdf","10.4 MB"]],"dli.ministry.07372":[["PDF","books/catalog/omalley-24-parganas-gazetteer-1914.pdf","14.0 MB"]],"dli.csl.3116":[["PDF","books/catalog/omalley-hooghly-gazetteer-1912.pdf","18.1 MB"]],"india.history.resource.77657":[["Part 1","books/catalog/hunter-statistical-account-bengal-v5-dacca-1875-part1.pdf","21.0 MB"],["Part 2","books/catalog/hunter-statistical-account-bengal-v5-dacca-1875-part2.pdf","22.3 MB"],["Part 3","books/catalog/hunter-statistical-account-bengal-v5-dacca-1875-part3.pdf","21.6 MB"],["Part 4","books/catalog/hunter-statistical-account-bengal-v5-dacca-1875-part4.pdf","22.1 MB"]],"annalsofruralben01hunt":[["PDF","books/catalog/hunter-annals-of-rural-bengal-1868.pdf","22.9 MB"]],"TheHistoryOfBengal":[["Part 1","books/catalog/stewart-history-of-bengal-1813-part1.pdf","13.0 MB"],["Part 2","books/catalog/stewart-history-of-bengal-1813-part2.pdf","14.9 MB"]],"asketchtopograp00taylgoog":[["PDF","books/catalog/taylor-topography-statistics-dacca-1840.pdf","11.7 MB"]],"romanceofeastern00brad":[["PDF","books/catalog/bradley-birt-dacca-1906.pdf","18.4 MB"]],"districtofbkar00beve":[["Part 1","books/catalog/beveridge-bakarganj-1876-part1.pdf","13.7 MB"],["Part 2","books/catalog/beveridge-bakarganj-1876-part2.pdf","14.0 MB"]],"india.history.resource.323":[["Part 1","books/catalog/blochmann-ain-i-akbari-v1-1873-part1.pdf","20.2 MB"],["Part 2","books/catalog/blochmann-ain-i-akbari-v1-1873-part2.pdf","20.8 MB"]],"bim_eighteenth-century_a-bengal-atlas-containi_rennell-james_1781":[["Part 1","books/catalog/rennell-bengal-atlas-1781-part1.pdf","21.0 MB"],["Part 2","books/catalog/rennell-bengal-atlas-1781-part2.pdf","18.9 MB"],["Part 3","books/catalog/rennell-bengal-atlas-1781-part3.pdf","19.2 MB"],["Part 4","books/catalog/rennell-bengal-atlas-1781-part4.pdf","20.8 MB"]],"in.gov.ignca.30990":[["Part 1","books/catalog/census-india-1901-bengal-report-part1.pdf","17.2 MB"],["Part 2","books/catalog/census-india-1901-bengal-report-part2.pdf","17.3 MB"],["Part 3","books/catalog/census-india-1901-bengal-report-part3.pdf","17.6 MB"],["Part 4","books/catalog/census-india-1901-bengal-report-part4.pdf","15.4 MB"]],"india.history.resource.92556":[["Part 1","books/catalog/census-india-1911-bengal-part1-report-part1.pdf","13.2 MB"],["Part 2","books/catalog/census-india-1911-bengal-part1-report-part2.pdf","13.7 MB"],["Part 3","books/catalog/census-india-1911-bengal-part1-report-part3.pdf","12.7 MB"],["Part 4","books/catalog/census-india-1911-bengal-part1-report-part4.pdf","13.6 MB"]],"india.history.resource.92566":[["Part 1","books/catalog/census-india-1911-bengal-part2-tables-part1.pdf","13.0 MB"],["Part 2","books/catalog/census-india-1911-bengal-part2-tables-part2.pdf","13.3 MB"]],"tribesandcastes00rislgoog":[["PDF","books/catalog/risley-tribes-castes-bengal-v1-1891.pdf","13.6 MB"]],"indianmusalmans00huntgoog":[["PDF","books/catalog/hunter-indian-musalmans-1871.pdf","1.8 MB"]],"notes-on-the-races-castes-and-trades-of-eastern-bengal-by-james-wise-ed-1883":[["Part 1","books/catalog/wise-races-castes-trades-eastern-bengal-1883-part1.pdf","12.6 MB"],["Part 2","books/catalog/wise-races-castes-trades-eastern-bengal-1883-part2.pdf","11.9 MB"],["Part 3","books/catalog/wise-races-castes-trades-eastern-bengal-1883-part3.pdf","23.7 MB"]],"historyofbengali00sendrich":[["Part 1","books/catalog/sen-bengali-language-literature-1911-part1.pdf","17.0 MB"],["Part 2","books/catalog/sen-bengali-language-literature-1911-part2.pdf","15.1 MB"],["Part 3","books/catalog/sen-bengali-language-literature-1911-part3.pdf","15.2 MB"],["Part 4","books/catalog/sen-bengali-language-literature-1911-part4.pdf","15.3 MB"]],"folkliteratureof00send":[["PDF","books/catalog/sen-folk-literature-of-bengal-1920.pdf","21.1 MB"]],"easternbengalbal032892mbp":[["PDF","books/catalog/sen-eastern-bengal-ballads-mymensing-v1-1923.pdf","22.0 MB"]],"easternbengaibal11dine":[["Part 1","books/catalog/sen-eastern-bengal-ballads-v2-1926-part1.pdf","14.4 MB"],["Part 2","books/catalog/sen-eastern-bengal-ballads-v2-1926-part2.pdf","13.9 MB"],["Part 3","books/catalog/sen-eastern-bengal-ballads-v2-1926-part3.pdf","14.6 MB"],["Part 4","books/catalog/sen-eastern-bengal-ballads-v2-1926-part4.pdf","14.2 MB"]]};
+  var FILES = {"daccaallen00alle":[["PDF","books/catalog/allen-dacca-gazetteer-1912.pdf","14.8 MB"]],"in.ernet.dli.2015.228204":[["PDF","books/catalog/chittagong-gazetteer-1908.pdf","17.5 MB"]],"dli.ministry.07913":[["PDF","books/catalog/chittagong-hill-tracts-gazetteer-1909.pdf","5.7 MB"]],"dli.ministry.07917":[["Part 1","books/catalog/noakhali-gazetteer-1911-part1.pdf","11.9 MB"],["Part 2","books/catalog/noakhali-gazetteer-1911-part2.pdf","14.4 MB"]],"dli.ministry.07920":[["PDF","books/catalog/tippera-gazetteer-1910.pdf","7.2 MB"]],"dli.ministry.07911":[["PDF","books/catalog/bogra-gazetteer-1910.pdf","9.7 MB"]],"dli.ministry.07919":[["PDF","books/catalog/rangpur-gazetteer-1911.pdf","8.8 MB"]],"in.ernet.dli.2015.228205":[["PDF","books/catalog/dinajpur-gazetteer-1912.pdf","14.1 MB"]],"dli.ministry.07413":[["Part 1","books/catalog/sachse-mymensingh-gazetteer-1917-part1.pdf","21.8 MB"],["Part 2","books/catalog/sachse-mymensingh-gazetteer-1917-part2.pdf","21.2 MB"],["Part 3","books/catalog/sachse-mymensingh-gazetteer-1917-part3.pdf","21.5 MB"]],"dli.ministry.07400":[["PDF","books/catalog/omalley-khulna-gazetteer-1908.pdf","11.1 MB"]],"dli.ministry.07417":[["PDF","books/catalog/omalley-pabna-gazetteer-1923.pdf","5.8 MB"]],"dli.csl.3031":[["PDF","books/catalog/omalley-rajshahi-gazetteer-1916.pdf","9.5 MB"]],"dli.ministry.07915":[["PDF","books/catalog/gruning-jalpaiguri-gazetteer-1911.pdf","8.4 MB"]],"dli.ministry.07411":[["PDF","books/catalog/omalley-murshidabad-gazetteer-1914.pdf","12.3 MB"]],"dli.ministry.07416":[["PDF","books/catalog/garrett-nadia-gazetteer-1910.pdf","10.4 MB"]],"dli.ministry.07372":[["PDF","books/catalog/omalley-24-parganas-gazetteer-1914.pdf","14.0 MB"]],"dli.csl.3116":[["PDF","books/catalog/omalley-hooghly-gazetteer-1912.pdf","18.1 MB"]],"india.history.resource.77657":[["Part 1","books/catalog/hunter-statistical-account-bengal-v5-dacca-1875-part1.pdf","21.0 MB"],["Part 2","books/catalog/hunter-statistical-account-bengal-v5-dacca-1875-part2.pdf","22.3 MB"],["Part 3","books/catalog/hunter-statistical-account-bengal-v5-dacca-1875-part3.pdf","21.6 MB"],["Part 4","books/catalog/hunter-statistical-account-bengal-v5-dacca-1875-part4.pdf","22.1 MB"]],"annalsofruralben01hunt":[["PDF","books/catalog/hunter-annals-of-rural-bengal-1868.pdf","22.9 MB"]],"TheHistoryOfBengal":[["Part 1","books/catalog/stewart-history-of-bengal-1813-part1.pdf","13.0 MB"],["Part 2","books/catalog/stewart-history-of-bengal-1813-part2.pdf","14.9 MB"]],"asketchtopograp00taylgoog":[["PDF","books/catalog/taylor-topography-statistics-dacca-1840.pdf","11.7 MB"]],"romanceofeastern00brad":[["PDF","books/catalog/bradley-birt-dacca-1906.pdf","18.4 MB"]],"districtofbkar00beve":[["Part 1","books/catalog/beveridge-bakarganj-1876-part1.pdf","13.7 MB"],["Part 2","books/catalog/beveridge-bakarganj-1876-part2.pdf","14.0 MB"]],"india.history.resource.323":[["Part 1","books/catalog/blochmann-ain-i-akbari-v1-1873-part1.pdf","20.2 MB"],["Part 2","books/catalog/blochmann-ain-i-akbari-v1-1873-part2.pdf","20.8 MB"]],"bim_eighteenth-century_a-bengal-atlas-containi_rennell-james_1781":[["Part 1","books/catalog/rennell-bengal-atlas-1781-part1.pdf","21.0 MB"],["Part 2","books/catalog/rennell-bengal-atlas-1781-part2.pdf","18.9 MB"],["Part 3","books/catalog/rennell-bengal-atlas-1781-part3.pdf","19.2 MB"],["Part 4","books/catalog/rennell-bengal-atlas-1781-part4.pdf","20.8 MB"]],"in.gov.ignca.30990":[["Part 1","books/catalog/census-india-1901-bengal-report-part1.pdf","17.2 MB"],["Part 2","books/catalog/census-india-1901-bengal-report-part2.pdf","17.3 MB"],["Part 3","books/catalog/census-india-1901-bengal-report-part3.pdf","17.6 MB"],["Part 4","books/catalog/census-india-1901-bengal-report-part4.pdf","15.4 MB"]],"india.history.resource.92556":[["Part 1","books/catalog/census-india-1911-bengal-part1-report-part1.pdf","13.2 MB"],["Part 2","books/catalog/census-india-1911-bengal-part1-report-part2.pdf","13.7 MB"],["Part 3","books/catalog/census-india-1911-bengal-part1-report-part3.pdf","12.7 MB"],["Part 4","books/catalog/census-india-1911-bengal-part1-report-part4.pdf","13.6 MB"]],"india.history.resource.92566":[["Part 1","books/catalog/census-india-1911-bengal-part2-tables-part1.pdf","13.0 MB"],["Part 2","books/catalog/census-india-1911-bengal-part2-tables-part2.pdf","13.3 MB"]],"tribesandcastes00rislgoog":[["PDF","books/catalog/risley-tribes-castes-bengal-v1-1891.pdf","13.6 MB"]],"indianmusalmans00huntgoog":[["PDF","books/catalog/lees-indian-musalmans-1871.pdf","1.8 MB"]],"notes-on-the-races-castes-and-trades-of-eastern-bengal-by-james-wise-ed-1883":[["Part 1","books/catalog/wise-races-castes-trades-eastern-bengal-1883-part1.pdf","12.6 MB"],["Part 2","books/catalog/wise-races-castes-trades-eastern-bengal-1883-part2.pdf","11.9 MB"],["Part 3","books/catalog/wise-races-castes-trades-eastern-bengal-1883-part3.pdf","23.7 MB"]],"historyofbengali00sendrich":[["Part 1","books/catalog/sen-bengali-language-literature-1911-part1.pdf","17.0 MB"],["Part 2","books/catalog/sen-bengali-language-literature-1911-part2.pdf","15.1 MB"],["Part 3","books/catalog/sen-bengali-language-literature-1911-part3.pdf","15.2 MB"],["Part 4","books/catalog/sen-bengali-language-literature-1911-part4.pdf","15.3 MB"]],"folkliteratureof00send":[["PDF","books/catalog/sen-folk-literature-of-bengal-1920.pdf","21.1 MB"]],"easternbengalbal032892mbp":[["PDF","books/catalog/sen-eastern-bengal-ballads-mymensing-v1-1923.pdf","22.0 MB"]],"easternbengaibal11dine":[["Part 1","books/catalog/sen-eastern-bengal-ballads-v2-1926-part1.pdf","14.4 MB"],["Part 2","books/catalog/sen-eastern-bengal-ballads-v2-1926-part2.pdf","13.9 MB"],["Part 3","books/catalog/sen-eastern-bengal-ballads-v2-1926-part3.pdf","14.6 MB"],["Part 4","books/catalog/sen-eastern-bengal-ballads-v2-1926-part4.pdf","14.2 MB"]]};
   var COVERS = {"daccaallen00alle":"img/covers/allen-dacca-gazetteer-1912.jpg","in.ernet.dli.2015.228204":"img/covers/chittagong-gazetteer-1908.jpg","dli.ministry.07913":"img/covers/chittagong-hill-tracts-gazetteer-1909.jpg","dli.ministry.07917":"img/covers/noakhali-gazetteer-1911.jpg","dli.ministry.07920":"img/covers/tippera-gazetteer-1910.jpg","dli.ministry.07911":"img/covers/bogra-gazetteer-1910.jpg","dli.ministry.07919":"img/covers/rangpur-gazetteer-1911.jpg","in.ernet.dli.2015.228205":"img/covers/dinajpur-gazetteer-1912.jpg","dli.ministry.07413":"img/covers/sachse-mymensingh-gazetteer-1917.jpg","dli.ministry.07400":"img/covers/omalley-khulna-gazetteer-1908.jpg","dli.ministry.07417":"img/covers/omalley-pabna-gazetteer-1923.jpg","dli.csl.3031":"img/covers/omalley-rajshahi-gazetteer-1916.jpg","dli.ministry.07915":"img/covers/gruning-jalpaiguri-gazetteer-1911.jpg","dli.ministry.07411":"img/covers/omalley-murshidabad-gazetteer-1914.jpg","dli.ministry.07416":"img/covers/garrett-nadia-gazetteer-1910.jpg","dli.ministry.07372":"img/covers/omalley-24-parganas-gazetteer-1914.jpg","dli.csl.3116":"img/covers/omalley-hooghly-gazetteer-1912.jpg","india.history.resource.77657":"img/covers/hunter-statistical-account-bengal-v5-dacca-1875.jpg","annalsofruralben01hunt":"img/covers/hunter-annals-of-rural-bengal-1868.jpg","TheHistoryOfBengal":"img/covers/stewart-history-of-bengal-1813.jpg","asketchtopograp00taylgoog":"img/covers/taylor-topography-statistics-dacca-1840.jpg","romanceofeastern00brad":"img/covers/bradley-birt-dacca-1906.jpg","districtofbkar00beve":"img/covers/beveridge-bakarganj-1876.jpg","india.history.resource.323":"img/covers/blochmann-ain-i-akbari-v1-1873.jpg","bim_eighteenth-century_a-bengal-atlas-containi_rennell-james_1781":"img/covers/rennell-bengal-atlas-1781.jpg","in.gov.ignca.30990":"img/covers/census-india-1901-bengal-report.jpg","india.history.resource.92556":"img/covers/census-india-1911-bengal-part1-report.jpg","india.history.resource.92566":"img/covers/census-india-1911-bengal-part2-tables.jpg","tribesandcastes00rislgoog":"img/covers/risley-tribes-castes-bengal-v1-1891.jpg","notes-on-the-races-castes-and-trades-of-eastern-bengal-by-james-wise-ed-1883":"img/covers/wise-races-castes-trades-eastern-bengal-1883.jpg","historyofbengali00sendrich":"img/covers/sen-bengali-language-literature-1911.jpg","folkliteratureof00send":"img/covers/sen-folk-literature-of-bengal-1920.jpg","easternbengalbal032892mbp":"img/covers/sen-eastern-bengal-ballads-mymensing-v1-1923.jpg","easternbengaibal11dine":"img/covers/sen-eastern-bengal-ballads-v2-1926.jpg"};
   var RCOVERS = {"books/obaidullah-arabic-grammar-1873-excerpt.pdf":"img/covers/obaidullah-arabic-grammar-1873-excerpt.jpg","books/russell-suhrawardy-muslim-jurisprudence-1911.pdf":"img/covers/russell-suhrawardy-muslim-jurisprudence-1911.jpg","books/suhrawardy-first-aid-for-india-1927.pdf":"img/covers/suhrawardy-first-aid-for-india-1927.jpg","books/suhrawardy-sayings-of-muhammad-1905.pdf":"img/covers/suhrawardy-sayings-of-muhammad-1905.jpg"};
   var DISTRICTS = [["dacca","Dacca (Dhaka)","dhaka","daccaallen00alle","dhaka",358.8,446.6],["mymensingh","Mymensingh","dhaka","dli.ministry.07413","mymensing maimansingh",357.6,315],["bakarganj","Bakarganj (Barisal)","barisal","districtofbkar00beve","barisal barishal bakerganj",353.7,602],["tippera","Tippera (Comilla)","chittagong","dli.ministry.07920","comilla cumilla",457.2,495.6],["noakhali","Noakhali","chittagong","dli.ministry.07917","noakhali",446.9,578.2],["chittagong","Chittagong","chittagong","in.ernet.dli.2015.228204","chattogram",540.2,652.4],["cht","Chittagong Hill Tracts","chittagong","dli.ministry.07913","chittagong hill tracts",583.6,609],["khulna","Khulna","khulna","dli.ministry.07400","sundarbans",249,585.2],["pabna","Pabna","rajshahi","dli.ministry.07417","pabna",210.7,420],["rajshahi","Rajshahi","rajshahi","dli.csl.3031","rajshahi",127.7,368.2],["bogra","Bogra","rajshahi","dli.ministry.07911","bogura",226,301],["rangpur","Rangpur","rajshahi","dli.ministry.07919","rangpur",210.7,175],["dinajpur","Dinajpur","rajshahi","in.ernet.dli.2015.228205","dinajpur",132.8,191.8],["jalpaiguri","Jalpaiguri","westbengal","dli.ministry.07915","duars",144.3,67.2],["murshidabad","Murshidabad","westbengal","dli.ministry.07411","murshidabad",85.6,394.8],["nadia","Nadia","westbengal","dli.ministry.07416","nabadwip navadwip",122.6,494.2],["24parganas","24 Parganas","westbengal","dli.ministry.07372","24-parganas calcutta",108.5,637],["hooghly","Hooghly","westbengal","dli.csl.3116","hugli",102.2,574]]; // [id, name, region, IA id, search words, x, y]
@@ -90,7 +90,8 @@
     var row = el("div", "cardrow"), txt = el("div", "txt");
     if (o.cover) { var im = el("img", "cover"); im.src = o.cover; im.alt = "Title page of " + o.title; im.loading = "lazy"; im.width = 76; row.appendChild(im); }
     var t = el("h3");
-    if (o.url) { var a = el("a", null, o.title); a.href = o.url; a.target = "_blank"; a.rel = "noopener"; t.appendChild(a); }
+    if (o.page) { var pa = el("a", null, o.title); pa.href = o.page; t.appendChild(pa); }
+    else if (o.url) { var a = el("a", null, o.title); a.href = o.url; a.target = "_blank"; a.rel = "noopener"; t.appendChild(a); }
     else t.textContent = o.title;
     if (o.star) { var st = el("span", null, " ★"); st.setAttribute("aria-label", "recommended first"); st.style.color = "var(--jute)"; t.appendChild(st); }
     txt.appendChild(t);
@@ -104,7 +105,7 @@
     return c;
   }
 
-  function fileButtons(title, files) {
+  function fileButtons(title, files, page) {
     var btns = el("div", "btns");
     files.forEach(function (f, k) {
       var read = el("a", "btn" + (k === 0 ? " solid" : ""), "Read " + f[0] + " · " + f[2]); read.href = f[1]; read.target = "_blank"; read.rel = "noopener";
@@ -112,8 +113,12 @@
       var dl = el("a", "btn", "Download"); dl.href = f[1]; dl.setAttribute("download", ""); dl.setAttribute("aria-label", "Download " + title + " " + f[0]);
       btns.appendChild(dl);
     });
+    if (page) { var ov = el("a", "btn", "Overview"); ov.href = page; btns.appendChild(ov); }
     return btns;
   }
+  function bookKey(b) { return b[5].split("/").pop(); }
+  function bookPage(b) { return "book.html?id=" + encodeURIComponent(bookKey(b)); }
+  var OV = window.OVERVIEWS || {};
 
   var drawer = document.getElementById("drawer");
   var seq = {};
@@ -122,7 +127,7 @@
     var pg = b[5].indexOf("gutenberg") > -1;
     var node = card({
       call: "BHA·" + b[0] + "·" + b[3] + "·" + String(seq[b[0]]).padStart(2, "0"),
-      access: "open", title: b[1], by: b[2], year: b[3], why: b[4], url: FILES[b[5].split("/").pop()] ? null : b[5], star: b[6], note: b[7],
+      access: "open", title: b[1], by: b[2], year: b[3], why: b[4], page: bookPage(b), star: b[6], note: b[7],
       foot: [THEMES[b[0]], pg ? "Project Gutenberg" : "Internet Archive scan", "Public domain (pre-1931)"],
       cover: COVERS[b[5].split("/").pop()]
     });
@@ -132,8 +137,13 @@
     node.insertBefore(el("p", "note", "Source and rights: " + (pg ? "Project Gutenberg ebook" : "Internet Archive item " + b[5].split("/").pop()) + ". Published " + b[3] + ", in the public domain in the United States."), node.querySelector(".foot"));
     node.classList.add("t-" + b[0]);
     var fl = FILES[b[5].split("/").pop()];
-    if (fl) node.appendChild(fileButtons(b[1], fl));
-    return { theme: b[0], node: node, id: iaid, text: [b[1], b[2], b[3], b[4], b[7] || "", THEMES[b[0]], dwords].join(" ").toLowerCase() };
+    if (fl) node.appendChild(fileButtons(b[1], fl, bookPage(b)));
+    else {
+      var gb = el("div", "btns"), ovb = el("a", "btn solid", "Overview"); ovb.href = bookPage(b); gb.appendChild(ovb);
+      var src = el("a", "btn", "Read at " + (pg ? "Project Gutenberg" : "Internet Archive")); src.href = b[5]; src.target = "_blank"; src.rel = "noopener"; gb.appendChild(src);
+      node.appendChild(gb);
+    }
+    return { theme: b[0], node: node, id: iaid, text: [b[1], b[2], b[3], b[4], b[7] || "", THEMES[b[0]], dwords, (OV[iaid] ? OV[iaid].s + " " + OV[iaid].i.join(" ") : "")].join(" ").toLowerCase() };
   });
   items.forEach(function (i) { drawer.appendChild(i.node); });
   var fb = document.getElementById("fact-books"); if (fb) fb.textContent = BOOKS.length;
@@ -175,6 +185,7 @@
   if (drawer) {
     apply("ALL");
     var sp = new URLSearchParams(location.search);
+    if (sp.get("theme") && THEMES[sp.get("theme")]) apply(sp.get("theme"));
     if (sp.get("q")) goSearch(sp.get("q"));
     else if (sp.get("book")) setTimeout(function () { goBook(sp.get("book")); }, 60);
   }
@@ -182,8 +193,8 @@
   var reading = document.getElementById("reading");
   (reading ? READING : []).forEach(function (r, i) {
     var c = card({ call: "BHA·READ·" + r[2] + "·" + String(i + 1).padStart(2, "0"), access: "open",
-      title: r[0], by: r[1], year: r[2], why: r[4], foot: [r[3], r[6], "Public domain (pre-1931)"], cover: RCOVERS[r[5][0][1]] });
-    c.appendChild(fileButtons(r[0], r[5]));
+      title: r[0], by: r[1], year: r[2], why: r[4], foot: [r[3], r[6], "Public domain (pre-1931)"], cover: RCOVERS[r[5][0][1]], page: "book.html?id=read-" + i });
+    c.appendChild(fileButtons(r[0], r[5], "book.html?id=read-" + i));
     reading.appendChild(c);
   });
   var tl = document.getElementById("tl");
@@ -323,6 +334,79 @@
     syncTheme();
   });
   syncTheme();
+
+
+  // Book page: book.html?id=<Internet Archive id, Gutenberg number or read-N>
+  var bp = document.getElementById("book-page");
+  if (bp) (function () {
+    var id = new URLSearchParams(location.search).get("id") || "";
+    var b = null, rd = null, i;
+    for (i = 0; i < BOOKS.length; i++) if (bookKey(BOOKS[i]) === id) b = BOOKS[i];
+    var m = /^read-(\d+)$/.exec(id);
+    if (!b && m && READING[+m[1]]) rd = READING[+m[1]];
+    if (!b && !rd) {
+      bp.appendChild(el("h1", null, "We couldn't find that book"));
+      var back = el("p"); var bl = el("a", null, "Back to the catalog"); bl.href = "catalog.html"; back.appendChild(bl); bp.appendChild(back);
+      return;
+    }
+    var title = b ? b[1] : rd[0], by = b ? b[2] : rd[1], year = b ? b[3] : rd[2];
+    var files = b ? FILES[id] : rd[5];
+    var ov = b ? OV[id] : null;
+    var theme = b ? THEMES[b[0]] : "Reading room";
+    var gut = b && b[5].indexOf("gutenberg") > -1;
+    document.title = title + " · Waymark Project";
+    var summary = ov ? ov.s : (b ? b[4] : rd[4]);
+    var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute("content", summary);
+
+    var crumbs = el("p", "crumbs");
+    var c1 = el("a", null, b ? "Catalog" : "Reading room"); c1.href = b ? "catalog.html" : "reading-room.html"; crumbs.appendChild(c1);
+    if (b) { crumbs.appendChild(document.createTextNode(" / ")); var c2 = el("a", null, theme); c2.href = "catalog.html?theme=" + b[0]; crumbs.appendChild(c2); }
+    bp.appendChild(crumbs);
+
+    var head = el("header", "bp-head");
+    var cv = b ? COVERS[id] : RCOVERS[rd[5][0][1]];
+    if (cv) { var im = el("img", "bp-cover"); im.src = cv; im.alt = "Title page of " + title; im.width = 150; head.appendChild(im); }
+    var ht = el("div", "bp-title");
+    ht.appendChild(el("p", "label", theme));
+    ht.appendChild(el("h1", null, title));
+    ht.appendChild(el("p", "by", by + " · " + year));
+    var tags = el("p", "bp-tags");
+    [b ? (gut ? "Project Gutenberg" : "Internet Archive scan") : rd[6], "Public domain (pre-1931)"].forEach(function (x) { tags.appendChild(el("span", null, x)); });
+    ht.appendChild(tags);
+    if (files) ht.appendChild(fileButtons(title, files));
+    else if (b) {
+      var gb = el("div", "btns"), g = el("a", "btn solid", "Read at " + (gut ? "Project Gutenberg" : "Internet Archive")); g.href = b[5]; g.target = "_blank"; g.rel = "noopener"; gb.appendChild(g); ht.appendChild(gb);
+    }
+    head.appendChild(ht); bp.appendChild(head);
+
+    function section(h, node) { var s = el("section", "bp-sec"); s.appendChild(el("h2", null, h)); s.appendChild(node); bp.appendChild(s); return s; }
+    section("Overview", el("p", null, summary));
+    if (ov && ov.i) { var ul = el("ul"); ov.i.forEach(function (x) { ul.appendChild(el("li", null, x)); }); section("What is inside", ul); }
+    else if (rd) section("About this scan", el("p", null, rd[6] + ". " + (rd[7] || "")));
+    if (ov && ov.u) section("Why it helps a family historian", el("p", null, ov.u));
+    var cares = [];
+    if (b && b[7]) cares.push(b[7]);
+    if (ov && ov.c) cares.push(ov.c);
+    if (rd && rd[7]) cares.push(rd[7]);
+    if (cares.length) { var cd = el("div"); cares.forEach(function (x) { cd.appendChild(el("p", null, x)); }); section("Read with care", cd); }
+    if (b && b[0] === "GAZ") section("How a gazetteer is organised", el("p", null, "District gazetteers in this series follow one plan: the land and rivers, history, the people, public health, agriculture, natural calamities, rents and prices, trades, communications, land revenue, administration, education, and an alphabetical gazetteer of places with an index. The same plan makes it easy to compare two districts."));
+    if (b) {
+      var ds = DISTRICTS.filter(function (d) { return d[3] === id; });
+      if (ds.length) { var dl = el("p"); var da = el("a", null, "Find it on the district map"); da.href = "explore.html#map"; dl.appendChild(document.createTextNode(ds.map(function (d) { return d[1]; }).join(", ") + ". ")); dl.appendChild(da); section("Place covered", dl); }
+      var rights = "Published " + b[3] + ", so in the public domain in the United States. " + (gut ? "Text from Project Gutenberg ebook " + id + "." : "Scan from Internet Archive item " + id + ".") + (files ? " Hosted here as a PDF for reading and download." : "");
+      section("Source and rights", el("p", null, rights));
+      var pool = BOOKS.filter(function (x) { return x[0] === b[0]; }), idx = pool.indexOf(b), more = [];
+      for (i = 1; i <= 3 && i < pool.length; i++) more.push(pool[(idx + i) % pool.length]);
+      if (more.length) {
+        var mu = el("ul", "bp-more");
+        more.forEach(function (x) { var li = el("li"), a = el("a", null, x[1]); a.href = bookPage(x); li.appendChild(a); li.appendChild(document.createTextNode(" · " + x[3])); mu.appendChild(li); });
+        section("More in " + theme, mu);
+      }
+    } else {
+      section("Source and rights", el("p", null, "Published " + year + ", so in the public domain in the United States. " + rd[6] + ". Hosted here as a PDF for reading and download."));
+    }
+    bp.appendChild(el("p", "bp-foot", "This overview was written by the Waymark Project from the book's own title page and contents. It is a guide, not a substitute for the book. If you spot a mistake, please write to us."));
+  })();
 
   // Language: our own select sets or clears Google's googtrans cookie and reloads, so switching back to English always works.
   // The Google Translate script only loads when a non-English language is active.
