@@ -166,6 +166,35 @@ footer .wrap { padding-block: 2rem; display: grid; gap: .5rem; font-size: .9rem;
 body { top: 0 !important; position: static !important; }
 .skiptranslate iframe, iframe.skiptranslate, .goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb-OEVmcd, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf, #goog-gt-tt, .goog-tooltip, .goog-tooltip:hover { display: none !important; visibility: hidden !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
+
+/* Visual polish: sticky header, delta line art in the hero, theme-colored card spines, phone layout. */
+.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(6px); }
+.hero { position: relative; overflow: hidden; }
+.hero .wrap { position: relative; z-index: 1; }
+.delta { position: absolute; right: -2rem; top: 0; height: 100%; width: min(55%, 34rem); color: var(--jute); opacity: .28; pointer-events: none; z-index: 0; }
+.delta path { fill: none; stroke: currentColor; stroke-linecap: round; }
+.delta .dots { stroke-dasharray: 1 7; }
+.facts span { border: 1px solid var(--rule); background: var(--card); border-radius: 4px; padding: .3rem .6rem; }
+.card { border-top: 4px solid var(--spine, var(--rule)); }
+.card.t-GAZ { --spine: var(--open); } .card.t-HIS { --spine: var(--jute); } .card.t-MAP { --spine: var(--ink-soft); }
+.card.t-SOC { --spine: var(--closed); } .card.t-LIT { --spine: var(--request); }
+.legend-dot { display: inline-block; width: .7rem; height: .7rem; border-radius: 50%; margin-right: .4rem; background: var(--spine); }
+.filters button[data-t] { display: inline-flex; align-items: center; }
+@media (max-width: 640px) {
+  body { font-size: 1rem; }
+  .top { position: static; }
+  .top .wrap { gap: .5rem; padding-block: .6rem; }
+  .brand { font-size: 1rem; }
+  nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  nav ul { flex-wrap: nowrap; white-space: nowrap; padding-bottom: .25rem; }
+  .tools { width: 100%; }
+  .tools select { flex: 1; max-width: none; }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+  .delta { opacity: .18; width: 90%; right: -20%; }
+  .btns .btn { flex: 1 1 100%; text-align: center; min-height: 2.75rem; }
+  .filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: .25rem; }
+  .filters button { white-space: nowrap; }
+}
 </style>
 </head>
 <body>
@@ -336,6 +365,18 @@ body { top: 0 !important; position: static !important; }
 
 <main id="top">
   <section class="hero">
+    <svg class="delta" viewBox="0 0 400 520" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" focusable="false">
+      <path d="M390 0 C330 70 300 120 270 190 S220 300 205 360" stroke-width="2.2"/>
+      <path d="M0 60 C80 110 150 150 205 210 S250 300 205 360" stroke-width="2.2"/>
+      <path d="M205 360 C190 400 160 430 120 470" stroke-width="1.8"/>
+      <path d="M205 360 C215 410 225 450 235 500" stroke-width="1.8"/>
+      <path d="M205 360 C250 400 290 430 340 460" stroke-width="1.8"/>
+      <path d="M205 360 C180 380 140 400 90 410" stroke-width="1.4"/>
+      <path d="M270 190 C320 210 350 240 395 250" stroke-width="1.4"/>
+      <path d="M150 150 C120 190 90 220 40 240" stroke-width="1.4"/>
+      <path class="dots" d="M10 500 C120 490 260 505 395 495" stroke-width="2.5"/>
+      <path class="dots" d="M30 20 C60 60 40 120 70 170" stroke-width="2.5"/>
+    </svg>
     <div class="wrap">
       <p class="label">A Waymark Project program · Est. 2026</p>
       <h1>Bengal Heritage <em>Archive</em></h1>
@@ -799,6 +840,7 @@ body { top: 0 !important; position: static !important; }
       foot: [THEMES[b[0]], pg ? "Project Gutenberg" : "Internet Archive scan", "Public domain (pre-1931)"]
     });
     node.insertBefore(el("p", "note", "Source and rights: " + (pg ? "Project Gutenberg ebook" : "Internet Archive item " + b[5].split("/").pop()) + ". Published " + b[3] + ", in the public domain in the United States."), node.querySelector(".foot"));
+    node.classList.add("t-" + b[0]);
     var fl = FILES[b[5].split("/").pop()];
     if (fl) node.appendChild(fileButtons(b[1], fl));
     return { theme: b[0], node: node };
@@ -816,6 +858,7 @@ body { top: 0 !important; position: static !important; }
   }
   [["ALL", "All"]].concat(Object.keys(THEMES).map(function (k) { return [k, THEMES[k]]; })).forEach(function (p) {
     var b = el("button", null, p[1]); b.type = "button"; b.dataset.t = p[0];
+    if (p[0] !== "ALL") { var d = el("span", "legend-dot"); d.className = "legend-dot card t-" + p[0]; d.style.cssText = "border:0;padding:0;min-height:0;border-radius:50%"; b.insertBefore(d, b.firstChild); }
     b.addEventListener("click", function () { apply(p[0]); });
     buttons.push(b); filters.appendChild(b);
   });
