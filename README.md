@@ -2,9 +2,12 @@
 
 A static multi-page site (no build step): `index.html` (home), `catalog.html`, `reading-room.html`, `explore.html` (map, quiz, timeline), `guide.html` (documents guide, glossary), `papers.html`, `about.html` (about, standards, privacy) and `contact.html` (FAQ, contact). Shared styles are in `assets/site.css` and scripts in `assets/site.js`; the book list, hosted-file map and district data are at the top of `site.js`. The language menu sets Google's `googtrans` cookie and reloads; choosing English clears it plus the PDFs in `books/` (about 945 MB in 67 files, each under 25 MB so they fit Cloudflare Pages' 25 MiB per-file cap and GitHub's 100 MB limit). `books/catalog/` holds the hosted copies of the Internet Archive catalog books; long books are split into `-partN.pdf` files. A repo this size is near GitHub's recommended 1 GB; Cloudflare Pages handles it, but keep the repo public and avoid re-committing PDFs. Fonts load from Google Fonts; everything else is inline.
 
+## Credibility pieces
+`about.html` holds the founder note, the method (how each entry is checked), the corrections log and the privacy note. Add a dated line to the corrections log (`#corrections`) whenever a card is fixed. `sitemap.xml` and the canonical and social tags use `https://waymark.areebuzzaman.com/`; update them if the address changes. `404.html` is served for unknown paths (`not_found_handling` in `wrangler.jsonc`).
+
 ## Before going live
 - Contact email is archive@areebuzzaman.com (set).
-- Fill the remaining placeholders: founder's full name, the "how it started" note, the site address and access date in the citation.
+- Fill the remaining placeholder: the founder's personal note under "How it started" in `about.html`.
 - Confirm the working name "Bengal Heritage Archive" isn't already taken (search the name, IRS Tax Exempt Organization Search, Maryland SDAT business search).
 - Keep the footer wording ("independent, volunteer-run project ... not a registered nonprofit") until the organization is incorporated and IRS-recognized.
 - Family papers stay "Closed" and unnamed until the family signs off. No photos of living people.
