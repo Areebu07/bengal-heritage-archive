@@ -1,3 +1,30 @@
-# Bengal Heritage Archive
+# Bengal Heritage Archive website
 
-Static site for a volunteer-run archive of Bengal history. See the site files in the open pull request.
+A single static page (`index.html`, no build step) plus the PDFs in `books/` (about 945 MB in 67 files, each under 25 MB so they fit Cloudflare Pages' 25 MiB per-file cap and GitHub's 100 MB limit). `books/catalog/` holds the hosted copies of the Internet Archive catalog books; long books are split into `-partN.pdf` files. A repo this size is near GitHub's recommended 1 GB; Cloudflare Pages handles it, but keep the repo public and avoid re-committing PDFs. Fonts load from Google Fonts; everything else is inline.
+
+## Before going live
+- Replace `CONTACT_EMAIL` with a project-only address (one place in `index.html`).
+- Confirm the working name "Bengal Heritage Archive" isn't already taken (search the name, IRS Tax Exempt Organization Search, Maryland SDAT business search).
+- Keep the footer wording ("independent, volunteer-run project ... not a registered nonprofit") until the organization is incorporated and IRS-recognized.
+- Family papers stay "Closed" and unnamed until the family signs off. No photos of living people.
+
+## Host it free on Cloudflare Pages (recommended)
+1. Put `index.html`, `robots.txt` and the `books/` folder in a GitHub repo (for example `bengal-heritage-archive`).
+2. Sign in at dash.cloudflare.com, go to Workers & Pages, Create, Pages, Connect to Git.
+3. Pick the repo. Framework preset: None. Build command: leave empty. Output directory: `/`.
+4. Deploy. The site is live at `<project-name>.pages.dev`. Each push to `main` redeploys.
+
+## Or GitHub Pages
+1. In the repo, Settings, Pages.
+2. Source: Deploy from a branch, branch `main`, folder `/ (root)`. Save.
+3. The site appears at `https://<username>.github.io/<repo>/` in a minute or two. (Free GitHub Pages needs a public repo.)
+
+## Editing the catalog
+The books are the `BOOKS` list near the bottom of `index.html`. Each row is
+`[theme, title, author, year, why it matters, link, starred (1 or 0), context note]`.
+Hosted PDFs for a book are listed in the `FILES` map, keyed by the Internet Archive id at the end of its link.
+Themes: GAZ (places and gazetteers), HIS (history), MAP (maps and census), SOC (people and society), LIT (literature).
+Call numbers are generated from theme, year and order.
+
+## Adding a PDF to the Reading room
+Copy the file into `books/` and add a row to the `READING` list in `index.html`. Only add works published in 1930 or earlier. Keep each file under 15 MB, or split it into parts. Family papers and anything newer stay out until written permission is on file.
