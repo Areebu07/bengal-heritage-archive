@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bengal Heritage Archive</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A volunteer-run reading room for Bengal and Bangladesh history: public-domain books, family records held with consent, and a plain-language guide to Bangladeshi civil documents for the diaspora.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+Bengali:wght@500&display=swap">
+<style>
+/* Layout: a reading room. One narrow column of prose, wide catalog drawers of index cards,
+   kantha running-stitch rules between sections. */
+:root {
+  --paper: #f2f3ee;      /* cool ledger paper */
+  --card: #fbfbf7;       /* index card stock */
+  --ink: #1d2540;        /* nil (indigo) ink */
+  --ink-soft: #4a5170;
+  --rule: #c9ccd6;
+  --jute: #9a6a12;       /* stamp / accent */
+  --open: #2f6b4f;       /* access: open */
+  --request: #8a5a00;    /* access: by request */
+  --closed: #8b2f3a;     /* access: closed */
+  --chip: #e4e6ee;
+  --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --bangla: "Noto Serif Bengali", "Kohinoor Bangla", "Vrinda", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #12162a; --card: #1a1f36; --ink: #e6e7ef; --ink-soft: #a9adc4; --rule: #343a57;
+    --jute: #d9a548; --open: #7cc5a0; --request: #e2b45c; --closed: #e58b95; --chip: #262c48;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #12162a; --card: #1a1f36; --ink: #e6e7ef; --ink-soft: #a9adc4; --rule: #343a57;
+  --jute: #d9a548; --open: #7cc5a0; --request: #e2b45c; --closed: #e58b95; --chip: #262c48;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--body); font-size: 1.0625rem; line-height: 1.6;
+  margin: 0;
+}
+.wrap {
+  max-width: 72rem; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.prose { max-width: 40rem; }
+a { color: var(--ink); text-decoration-color: var(--jute); text-underline-offset: 3px; }
+a:hover { color: var(--jute); }
+:focus-visible { outline: 2px solid var(--jute); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 500; text-wrap: balance; line-height: 1.15; margin: 0; }
+h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+h3 { font-size: 1.25rem; }
+p { margin: 0; }
+.stack { display: grid; gap: 1rem; }
+.label {
+  font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft);
+}
+.placeholder { background: var(--chip); padding: 0 .3em; border-radius: 3px; font-family: var(--mono); font-size: .85em; }
+
+/* Kantha running stitch */
+.stitch { border: 0; height: 2px; margin: 0;
+  background-image: linear-gradient(to right, var(--jute) 0 10px, transparent 10px 18px);
+  background-size: 18px 2px; opacity: .7; }
+
+/* Masthead */
+.top { border-bottom: 1px solid var(--rule); }
+.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; padding-block: .9rem; }
+.brand { font-family: var(--display); font-size: 1.1rem; font-weight: 700; text-decoration: none; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem 1.1rem; }
+nav a { font-family: var(--mono); font-size: .8rem; text-decoration: none; color: var(--ink-soft); }
+nav a:hover { color: var(--jute); }
+
+.hero .wrap { padding-block: clamp(2.5rem, 7vw, 5rem) clamp(2rem, 5vw, 3.5rem); display: grid; gap: 1.5rem; }
+.hero h1 { font-size: clamp(2.6rem, 8vw, 5.4rem); font-weight: 500; letter-spacing: -.01em; }
+.hero h1 em { font-style: italic; color: var(--jute); }
+.bn { font-family: var(--bangla); font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--ink-soft); }
+.lede { font-size: clamp(1.15rem, 2.2vw, 1.35rem); max-width: 38rem; }
+.facts { display: flex; flex-wrap: wrap; gap: .5rem 2rem; font-family: var(--mono); font-size: .8rem; color: var(--ink-soft); }
+.facts b { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+section > .wrap { padding-block: clamp(2.5rem, 6vw, 4rem); display: grid; gap: 1.75rem; }
+
+/* Access legend */
+.access { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.access > div { border-top: 3px solid var(--c); padding-top: .75rem; display: grid; gap: .4rem; min-width: 0; }
+.access .open { --c: var(--open); } .access .request { --c: var(--request); } .access .closed { --c: var(--closed); }
+.stamp {
+  display: inline-block; font-family: var(--mono); font-size: .7rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+  border: 1.5px solid currentColor; padding: .05rem .4rem; border-radius: 2px; transform: rotate(-2deg); white-space: nowrap;
+}
+.stamp.open { color: var(--open); } .stamp.request { color: var(--request); } .stamp.closed { color: var(--closed); }
+
+/* Catalog */
+.filters { display: flex; flex-wrap: wrap; gap: .5rem; }
+.filters button {
+  font: 500 .8rem var(--mono); color: var(--ink); background: transparent; border: 1px solid var(--rule);
+  padding: .35rem .75rem; border-radius: 999px; cursor: pointer;
+}
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.drawer { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); gap: 1rem; }
+.card {
+  background: var(--card); border: 1px solid var(--rule); border-radius: 3px; padding: 1rem 1.1rem 1.1rem;
+  display: grid; gap: .55rem; align-content: start; min-width: 0;
+}
+.card .head { display: flex; justify-content: space-between; align-items: center; gap: .5rem; border-bottom: 1px solid var(--closed); padding-bottom: .45rem; }
+.card .call { font-family: var(--mono); font-size: .75rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.card h3 { font-size: 1.15rem; }
+.card h3 a { text-decoration: none; }
+.card h3 a:hover { text-decoration: underline; }
+.card .by { font-size: .95rem; color: var(--ink-soft); }
+.card .why { font-size: .95rem; }
+.card .note { font-size: .85rem; font-style: italic; color: var(--ink-soft); }
+.card .foot { font-family: var(--mono); font-size: .72rem; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: .25rem .9rem; }
+.count { font-family: var(--mono); font-size: .8rem; color: var(--ink-soft); }
+
+/* Guide */
+.guide { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: 1.5rem; }
+.guide article { display: grid; gap: .6rem; align-content: start; min-width: 0; }
+.guide ol, .guide ul { margin: 0; padding-left: 1.2rem; display: grid; gap: .35rem; }
+.guide .src { font-family: var(--mono); font-size: .75rem; color: var(--ink-soft); }
+.callout { border-left: 3px solid var(--jute); padding: .25rem 0 .25rem 1rem; max-width: 44rem; }
+
+/* FAQ */
+details { border-top: 1px solid var(--rule); padding-block: .85rem; max-width: 44rem; }
+details:last-of-type { border-bottom: 1px solid var(--rule); }
+summary { cursor: pointer; font-weight: 600; }
+details p { margin-top: .5rem; }
+
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; max-width: 44rem; border-left: 2px solid var(--rule); }
+.timeline li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; padding: .6rem 0 .6rem 1rem; position: relative; }
+.timeline li::before { content: ""; position: absolute; left: -6px; top: 1.05rem; width: 10px; height: 10px; border-radius: 50%; background: var(--jute); }
+.timeline .yr { font-family: var(--mono); font-size: .9rem; font-variant-numeric: tabular-nums; color: var(--ink); }
+.timeline .ev { min-width: 0; }
+.timeline .ev small { display: block; font-size: .85rem; color: var(--ink-soft); }
+.cite { border-left: 3px solid var(--rule); padding-left: 1rem; font-size: .95rem; }
+.btns { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .25rem; }
+.btn { font: 500 .8rem var(--mono); text-decoration: none; border: 1px solid var(--ink); padding: .4rem .8rem; border-radius: 3px; color: var(--ink); }
+.btn.solid { background: var(--ink); color: var(--paper); }
+.btn:hover { border-color: var(--jute); color: var(--jute); }
+.btn.solid:hover { background: var(--jute); color: var(--paper); }
+.contact { display: grid; gap: .75rem; }
+.email { font-family: var(--mono); font-size: 1rem; user-select: all; }
+.copy { font: 500 .8rem var(--mono); background: var(--ink); color: var(--paper); border: 0; padding: .4rem .8rem; border-radius: 3px; cursor: pointer; justify-self: start; }
+
+footer { border-top: 1px solid var(--rule); }
+footer .wrap { padding-block: 2rem; display: grid; gap: .5rem; font-size: .9rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Bengal Heritage Archive</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#reading-room">Reading room</a></li>
+        <li><a href="#collection">Catalog</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#guide">Documents guide</a></li>
+        <li><a href="#standards">Standards</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="label">A volunteer-run reading room · Est. 2026</p>
+      <h1>Bengal Heritage <em>Archive</em></h1>
+      <p class="bn" lang="bn">বেঙ্গল হেরিটেজ আর্কাইভ</p>
+      <p class="lede">A small, careful collection of Bengal's written past: full-text books you can read and download here, a catalog of district gazetteers, censuses and ballads held in free digital libraries, family records kept with the family's consent, and a plain guide for diaspora Bangladeshis sorting out birth, NID and land papers.</p>
+      <div class="facts">
+        <span><b id="fact-books">40</b> books in the online catalog</span>
+        <span><b>5</b> works to read and download here</span>
+        <span><b>1780–1927</b> date range</span>
+        <span><b>1930</b> latest publication year allowed</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="stitch">
+
+  <section id="about">
+    <div class="wrap">
+      <div class="prose stack">
+        <p class="label">About</p>
+        <h2>Why an archive, and why so small</h2>
+        <p>Families from Bengal often know their <i>desh</i>, the home village, by name only. The records that explain it, such as the colonial district gazetteers, the 1901 and 1911 censuses and the land surveys, are scattered across digital libraries and hard to find if you don't know their titles. This site gathers the useful ones in one place, with a short note on why each matters.</p>
+        <p>The archive has two jobs. The first is a reading room: a catalog of pre-1931 books on Bengal, with the full text of some of them hosted here. The second is a help desk guide that points people to the right official office for a birth certificate, an NID or a land record, and uses the old sources to explain the places and terms they find on their family's papers.</p>
+        <p>Colonial-era sources are primary evidence, not neutral truth. Where a book's framing of caste, religion or race is dated, its card says so.</p>
+      </div>
+      <div class="prose stack">
+        <h3>How it started</h3>
+        <p>The archive began in 2026 as a family research project. A printed lawyer's diary from 1927, a pocket calendar and a letter from 1913, and a shelf of books about Bengal raised more questions than the family could answer: which district a village belonged to, what an unfamiliar legal term meant, where to find the matching official record today.</p>
+        <p>Answering those questions meant reading the same gazetteers and censuses over and over. The founder, who lives in Maryland, decided to catalog them once, with notes, so the next family does not start from zero. <span class="placeholder">Founder's note: add two or three personal sentences and a name here.</span></p>
+      </div>
+      <div class="prose stack">
+        <h3>Who runs it</h3>
+        <p>The archive is run by one volunteer, with no paid staff and no funding. It is not yet a registered organization. We are working toward a small board and a formal structure, and will say so here when that changes.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="stitch">
+
+  <section id="reading-room">
+    <div class="wrap">
+      <div class="prose stack">
+        <p class="label">Reading room</p>
+        <h2>Read and download the full text</h2>
+        <p>These works were all published between 1873 and 1927 and are in the public domain. The PDFs are hosted on this site. Open one in your browser, or save a copy to keep.</p>
+      </div>
+      <div class="drawer" id="reading"></div>
+      <p class="prose" style="font-size:.95rem;color:var(--ink-soft)">Scans keep the marks of earlier readers, such as library stamps, shelf numbers and handwriting. We have not altered them. Some text may be hard to read where a page was torn or stained. More volumes will be added as we check each scan page by page.</p>
+    </div>
+  </section>
+
+  <hr class="stitch">
+
+  <section id="collection">
+    <div class="wrap">
+      <div class="prose stack">
+        <p class="label">The catalog</p>
+        <h2>Public-domain books on Bengal</h2>
+        <p>Each card is one book. Where we host a copy, use the Read and Download buttons. The title opens the original scan at the Internet Archive or Project Gutenberg in a new tab, which is the full-resolution version. Our hosted copies are shrunk to fit free hosting, and long books are split into parts. Start with the starred cards if you are new to these sources.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter by theme" id="filters"></div>
+      <p class="count" id="count" aria-live="polite"></p>
+      <div class="drawer" id="drawer"></div>
+    </div>
+  </section>
+
+  <hr class="stitch">
+
+  <section id="holdings">
+    <div class="wrap">
+      <div class="prose stack">
+        <p class="label">Family papers</p>
+        <h2>Papers we hold, and why they stay closed</h2>
+        <p>The archive also holds unpublished family papers from early twentieth-century Calcutta. They are listed here so researchers know they exist. They are not online, and they will not be until the family has approved what can be shown and every living person named in them has been considered.</p>
+      </div>
+      <div class="drawer" id="papers"></div>
+    </div>
+  </section>
+
+  <hr class="stitch">
+
+  <section id="access">
+    <div class="wrap">
+      <div class="prose stack">
+        <p class="label">Access policy</p>
+        <h2>Open, by request, closed</h2>
+        <p>Every item carries one of three stamps. The stamp tells you what you can do with it today.</p>
+      </div>
+      <div class="access">
+        <div class="open"><span class="stamp open">Open</span><p>Free to read now. Public-domain books, either hosted here as PDFs or linked to a scan at a library such as the Internet Archive or Project Gutenberg.</p></div>
+        <div class="request"><span class="stamp request">By request</span><p>Safe to share, but not online yet, for example a book whose scan we are still checking. Write to us and we will send a copy or the pages you need.</p></div>
+        <div class="closed"><span class="stamp closed">Closed</span><p>Private family papers and photographs. Listed so researchers know they exist. Opened only with the family's written consent, and never with details about living people.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="stitch">
+
+  <section id="guide">
+    <div class="wrap">
+      <div class="prose stack">
+        <p class="label">Diaspora help desk</p>
+        <h2>A starter guide to Bangladeshi civil documents</h2>
+        <p>Many people come to old records because of a present-day paperwork problem: a missing birth certificate, an NID that doesn't match a passport, or a parent's land that needs to pass to heirs. These are the official starting points.</p>
+      </div>
+      <p class="callout">This guide is general information, not legal advice. Fees, forms and rules change. Always confirm the current process with the official site or with your nearest Bangladesh embassy or consulate before you pay or travel.</p>
+      <div class="guide">
+        <article>
+          <p class="label">1 · Birth registration</p>
+          <h3>Get or correct a birth certificate</h3>
+          <ol>
+            <li>Apply online through the government's Birth and Death Registration Information System (BDRIS), which issues a 17-digit registration number.</li>
+            <li>If you were born abroad, submit the printed application through the Bangladesh embassy or consulate for your area.</li>
+            <li>Corrections are usually made by the office that first issued the certificate. Bring proof of your name in English and Bangla, and proof of permanent address.</li>
+          </ol>
+          <p class="src">Official: <a href="https://bdris.gov.bd/br/application" target="_blank" rel="noopener">bdris.gov.bd</a></p>
+        </article>
+        <article>
+          <p class="label">2 · National ID (NID)</p>
+          <h3>Apply for an NID from abroad</h3>
+          <ol>
+            <li>You need a valid Bangladeshi passport and an online-verifiable 17-digit birth registration. The details on both must match exactly.</li>
+            <li>Fill in the application on the Election Commission's NID portal, then book biometric enrolment at your embassy or consulate, if it offers the service.</li>
+            <li>Get the birth record right first. Most NID problems start with a spelling or date mismatch there.</li>
+          </ol>
+          <p class="src">Official: <a href="https://services.nidw.gov.bd/nid-pub" target="_blank" rel="noopener">services.nidw.gov.bd</a></p>
+        </article>
+        <article>
+          <p class="label">3 · Land and inheritance</p>
+          <h3>Find a family land record</h3>
+          <ol>
+            <li>Land is recorded by <i>mouza</i> (revenue village) and <i>khatian</i> (record of rights). Survey series you will meet include CS, SA, RS and BS.</li>
+            <li>Certified khatian copies and mouza maps can be ordered online from the land ministry's e-Porcha portal.</li>
+            <li>Inheritance usually needs a succession certificate or <i>warishan</i> certificate from the local union parishad or municipality, then a mutation (<i>namjari</i>) at the land office.</li>
+          </ol>
+          <p class="src">Official: <a href="https://eporcha.gov.bd" target="_blank" rel="noopener">eporcha.gov.bd</a> · <a href="https://land.gov.bd" target="_blank" rel="noopener">land.gov.bd</a></p>
+        </article>
+      </div>
+      <div class="prose stack">
+        <h3>Where the old books help</h3>
+        <p>If a family document names a thana, pargana or mouza you can't place, look it up in the district gazetteer for that area in the catalog above. Gazetteers list subdivisions and police stations as they were around 1910, which often explains a place name on an old deed.</p>
+        <p>In the United States, consular services are offered by the <a href="https://washington.mofa.gov.bd" target="_blank" rel="noopener">Embassy of Bangladesh in Washington, D.C.</a> and the <a href="https://bdcgny.org" target="_blank" rel="noopener">Consulate General in New York</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="stitch">
+
+  <section id="contribute">
+    <div class="wrap">
+      <div class="prose stack">
+        <p class="label">Contribute</p>
+        <h2>Lend us a box of old papers</h2>
+        <p>If your family has letters, diaries, deeds, school certificates or studio portraits from before about 1950, we would like to hear from you. We scan, catalog and return everything, and you decide what becomes public.</p>
+        <ul class="stack" style="padding-left:1.2rem;gap:.4rem">
+          <li>You keep ownership and copyright. We ask only for permission to show what you approve.</li>
+          <li>You choose an access stamp for each item: open, by request, or closed.</li>
+          <li>We leave out names, addresses and faces of living people unless they agree in writing.</li>
+          <li>You can withdraw an item at any time, and we take it down.</li>
+        </ul>
+        <p>A short donor consent form is being prepared. Until it is ready, please write to us first.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="stitch">
+
+  <section id="timeline">
+    <div class="wrap">
+      <div class="prose stack">
+        <p class="label">Context</p>
+        <h2>Bengal in ten dates</h2>
+        <p>A short frame for reading the catalog. The gazetteers, for instance, were written for the province of Eastern Bengal and Assam, which existed only from 1905 to 1912.</p>
+      </div>
+      <ol class="timeline" id="tl"></ol>
+    </div>
+  </section>
+
+  <hr class="stitch">
+
+  <section id="standards">
+    <div class="wrap">
+      <div class="prose stack">
+        <p class="label">Standards</p>
+        <h2>How we decide what goes on this site</h2>
+      </div>
+      <div class="guide">
+        <article>
+          <h3>Rights</h3>
+          <ul>
+            <li>Only works first published in 1930 or earlier, which are in the public domain in the United States. Authors of the listed books also died long enough ago to be out of copyright in India and Bangladesh.</li>
+            <li>Later reprints and new editions are not used, because they can carry new copyright in introductions or typesetting.</li>
+            <li>Modern books and articles are never posted without written permission from the author or heirs.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>People and privacy</h3>
+          <ul>
+            <li>Family papers and photographs are shared only with the family's written consent.</li>
+            <li>We leave out the names, addresses and faces of living people unless they agree in writing.</li>
+            <li>Anyone can ask us to remove an item, and we take it down.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Accuracy and context</h3>
+          <ul>
+            <li>Every card names its source and the rights basis. We say when we have not verified a scan.</li>
+            <li>Colonial sources get a context note. We present them as evidence of what officials believed, not as settled fact.</li>
+            <li>Corrections are welcome. Write to us with the call number, and we fix the card and note the date.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="prose stack">
+        <h3>How to cite this archive</h3>
+        <p>Cite the original work first, then the archive's call number and the address of the page you used. For example:</p>
+        <p class="cite">Allen, B. C. <i>Dacca</i>. Eastern Bengal and Assam District Gazetteers, 1912. Bengal Heritage Archive, call no. BHA·GAZ·1912·01. Scan: archive.org/details/daccaallen00alle. Accessed <span class="placeholder">date</span>.</p>
+        <p>Call numbers are made of the theme (GAZ, HIS, MAP, SOC, LIT, READ or FAM), the year of publication, and a running number.</p>
+      </div>
+      <div class="prose stack">
+        <h3>Status and plans</h3>
+        <p>The archive is an independent, volunteer-run project. We plan to add more scanned volumes after checking each one, a donor consent form for family papers, and a short glossary of Bengali land and legal terms. If the project later incorporates and is recognized as a charity, this page will say so, along with who sits on the board.</p>
+        <h3>Accessibility</h3>
+        <p>The site is plain HTML with no tracking and no cookies. It works with a keyboard and a screen reader, adjusts to light and dark settings, and scales to phone screens. If something does not work for you, tell us and we will fix it.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="stitch">
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="prose stack">
+        <p class="label">Questions</p>
+        <h2>Frequently asked</h2>
+      </div>
+      <div>
+        <details><summary>Can I download and share these books?</summary><p>Yes. Every book in the catalog was published in 1930 or earlier and is in the public domain in the United States. The authors died long enough ago that the works are also out of copyright in Bangladesh and India. Some scans carry a library watermark, so credit the library that scanned them.</p></details>
+        <details><summary>Which books are hosted here, and which are links?</summary><p>Every Internet Archive book in the catalog has a copy hosted here as PDF files, and the five Reading room works are hosted too. Large books are split into parts of about 25 MB or less. The five Project Gutenberg entries are ebooks, so they link to Gutenberg. Titles always link to the original scan, which is the full-quality copy.</p></details>
+        <details><summary>Why are some family papers closed?</summary><p>Unpublished letters and diaries belong to the writer's heirs, and they can mention people who are still alive. We list them so researchers know they exist, and open them only with the family's approval.</p></details>
+        <details><summary>Can you fix my birth certificate or NID for me?</summary><p>No. We are volunteers, not lawyers or agents, and we never handle fees or original documents. We can point you to the right office and explain the terms on an old record.</p></details>
+        <details><summary>Is this a registered charity?</summary><p>Not yet. It is an independent, volunteer-run project. We don't accept donations, and nothing given to us is tax-deductible.</p></details>
+        <details><summary>I found a mistake in a catalog card.</summary><p>Thank you. Write to us with the call number on the card and we will correct it.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <hr class="stitch">
+
+  <section id="contact">
+    <div class="wrap contact">
+      <p class="label">Contact</p>
+      <h2>Write to the archive</h2>
+      <p class="prose">For copies of items marked by request, offers of family papers, or corrections. We usually reply within a week.</p>
+      <p class="email" id="email">CONTACT_EMAIL</p>
+      <button class="copy" id="copy" type="button">Copy address</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Bengal Heritage Archive</b> <span class="placeholder">working name</span> is an independent, volunteer-run project. It is not a registered nonprofit and does not accept donations.</p>
+    <p>Book scans come from the Internet Archive, the Digital Library of India and Project Gutenberg. Catalog descriptions are our own and may be reused with credit.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var IA = "https://archive.org/details/";
+  var PG = "https://www.gutenberg.org/ebooks/";
+  var THEMES = { GAZ: "Places & gazetteers", HIS: "History & records", MAP: "Maps & census", SOC: "People & society", LIT: "Language & literature" };
+  // [theme, title, author, year, why, url, starred, note]
+  var BOOKS = [
+    ["GAZ","Dacca (Eastern Bengal and Assam District Gazetteers)","B. C. Allen",1912,"The standard reference on Dhaka district: villages, trade, communities and history.",IA+"daccaallen00alle",1],
+    ["GAZ","Chittagong","L. S. S. O'Malley",1908,"The port city and its hinterland, with settlement history.",IA+"in.ernet.dli.2015.228204"],
+    ["GAZ","Chittagong Hill Tracts","Eastern Bengal and Assam government",1909,"Hill peoples and frontier administration.",IA+"dli.ministry.07913"],
+    ["GAZ","Noakhali","Eastern Bengal and Assam government",1911,"A district many diaspora families trace their roots to.",IA+"dli.ministry.07917"],
+    ["GAZ","Tippera (Comilla)","Eastern Bengal and Assam government",1910,"Another large source of emigration, with village-level detail.",IA+"dli.ministry.07920"],
+    ["GAZ","Bogra","Eastern Bengal and Assam government",1910,"North Bengal, including the antiquities of Mahasthangarh.",IA+"dli.ministry.07911"],
+    ["GAZ","Rangpur","Eastern Bengal and Assam government",1911,"Agrarian life and villages of the north.",IA+"dli.ministry.07919"],
+    ["GAZ","Dinajpur","Eastern Bengal and Assam government",1912,"Temples, early settlement and land in North Bengal.",IA+"in.ernet.dli.2015.228205"],
+    ["GAZ","Mymensingh (Bengal District Gazetteers)","F. A. Sachse",1917,"The district behind the Mymensingh ballads.",IA+"dli.ministry.07413"],
+    ["GAZ","Khulna","L. S. S. O'Malley",1908,"Delta villages on the edge of the Sundarbans.",IA+"dli.ministry.07400"],
+    ["GAZ","Pabna","L. S. S. O'Malley",1923,"Silk, jute and river trade.",IA+"dli.ministry.07417"],
+    ["GAZ","Rajshahi","L. S. S. O'Malley",1916,"North-west Bengal and the Barind tract.",IA+"dli.csl.3031"],
+    ["GAZ","Jalpaiguri","J. F. Gruning",1911,"The Duars and the tea country.",IA+"dli.ministry.07915"],
+    ["GAZ","Murshidabad","L. S. S. O'Malley",1914,"The former capital of the Nawabs of Bengal.",IA+"dli.ministry.07411"],
+    ["GAZ","Nadia","J. H. E. Garrett",1910,"Nabadwip and its scholarly tradition.",IA+"dli.ministry.07416"],
+    ["GAZ","24 Parganas","L. S. S. O'Malley",1914,"The district south and east of Calcutta, including Deganga.",IA+"dli.ministry.07372"],
+    ["GAZ","Hooghly","L. S. S. O'Malley and M. Chakravarti",1912,"Colonial-era river towns near Calcutta.",IA+"dli.csl.3116"],
+    ["HIS","A Statistical Account of Bengal, Vol. 5: Dacca division","W. W. Hunter",1875,"District-by-district population, land tenure, crops, trade and customs.",IA+"india.history.resource.77657",1,"Hunter wrote as a colonial administrator. Read his judgements of local people critically."],
+    ["HIS","The Annals of Rural Bengal","W. W. Hunter",1868,"Village life, famine and land records under early British rule.",IA+"annalsofruralben01hunt"],
+    ["HIS","The History of Bengal","Charles Stewart",1813,"An early English-language history, from the first Muslim conquest to 1757.",IA+"TheHistoryOfBengal"],
+    ["HIS","A Sketch of the Topography and Statistics of Dacca","James Taylor",1840,"An early survey of Dhaka's neighbourhoods, trades and people.",IA+"asketchtopograp00taylgoog"],
+    ["HIS","Dacca: The Romance of an Eastern Capital","F. B. Bradley-Birt",1906,"A readable city history with period photographs.",IA+"romanceofeastern00brad"],
+    ["HIS","The District of Bakarganj: Its History and Statistics","Henry Beveridge",1876,"Local history of the Barisal region.",IA+"districtofbkar00beve"],
+    ["HIS","Ain-i-Akbari, Vol. 1 (trans. H. Blochmann)","Abu'l-Fazl",1873,"The Mughal imperial survey, including the Subah of Bengal.",IA+"india.history.resource.323"],
+    ["MAP","A Bengal Atlas","James Rennell",1781,"The first detailed survey maps of Bengal, made 1764 to 1777.",IA+"bim_eighteenth-century_a-bengal-atlas-containi_rennell-james_1781"],
+    ["MAP","Census of India 1901, Vol. 6, Pt. 1: Bengal report","Census of India",1902,"Population, religion, language and caste by district. Good for placing family origins.",IA+"in.gov.ignca.30990"],
+    ["MAP","Census of India 1911, Vol. 5: Bengal, Pt. 1 (Report)","Census of India",1913,"The next census, ten years on. The tables are in Part 2.",IA+"india.history.resource.92556"],
+    ["MAP","Census of India 1911, Vol. 5: Bengal, Pt. 2 (Tables)","Census of India",1913,"District and thana tables that go with the 1911 report.",IA+"india.history.resource.92566"],
+    ["SOC","The Tribes and Castes of Bengal, Vol. 1","H. H. Risley",1891,"An occupational and genealogical reference for Bengal's communities.",IA+"tribesandcastes00rislgoog",0,"Built on colonial race science that is now discredited. Useful as a record of what officials believed."],
+    ["SOC","The Indian Musalmans","W. W. Hunter",1871,"A colonial official's account of Bengal's Muslim communities.",IA+"indianmusalmans00huntgoog",0,"A primary source on British attitudes. Read it critically. This scan appears incomplete: it ends around page 106, so check the original."],
+    ["SOC","Notes on the Races, Castes and Trades of Eastern Bengal","James Wise",1883,"Community-level ethnography of eastern Bengal.",IA+"notes-on-the-races-castes-and-trades-of-eastern-bengal-by-james-wise-ed-1883",0,"Shares the colonial framing of Risley's work."],
+    ["LIT","History of Bengali Language and Literature","Dinesh Chandra Sen",1911,"The foundational survey of Bengali literature, written in English.",IA+"historyofbengali00sendrich",1],
+    ["LIT","The Folk-Literature of Bengal","Dinesh Chandra Sen",1920,"Folk tales, rhymes and songs collected for Calcutta University.",IA+"folkliteratureof00send"],
+    ["LIT","Eastern Bengal Ballads: Mymensing, Vol. 1, Pt. 1","Dinesh Chandra Sen (ed.)",1923,"Village ballads from present-day Bangladesh, with English translations.",IA+"easternbengalbal032892mbp",1],
+    ["LIT","Eastern Bengal Ballads, Vol. 2","Dinesh Chandra Sen (ed.)",1926,"The second volume of the Mymensingh ballad collection.",IA+"easternbengaibal11dine"],
+    ["LIT","Gitanjali (Song Offerings)","Rabindranath Tagore",1912,"Tagore's own English versions of the poems that won the 1913 Nobel Prize.",PG+"7164",1],
+    ["LIT","Folk-Tales of Bengal","Lal Behari Day",1883,"A classic English collection of tales told in Bengali homes.",PG+"38488"],
+    ["LIT","My Reminiscences","Rabindranath Tagore",1917,"Tagore's memoir of a Calcutta childhood.",PG+"22217"],
+    ["LIT","The Home and the World","Rabindranath Tagore",1919,"A novel of the Swadeshi years after the 1905 partition of Bengal.",PG+"7166"],
+    ["LIT","The Hungry Stones and Other Stories","Rabindranath Tagore",1916,"Short stories set in rural and small-town Bengal.",PG+"2518"]
+  ];
+  // Hosted copies of the catalog scans, keyed by Internet Archive id. [label, path, size]
+  var FILES = {"daccaallen00alle":[["PDF","books/catalog/allen-dacca-gazetteer-1912.pdf","14.8 MB"]],"in.ernet.dli.2015.228204":[["PDF","books/catalog/chittagong-gazetteer-1908.pdf","17.5 MB"]],"dli.ministry.07913":[["PDF","books/catalog/chittagong-hill-tracts-gazetteer-1909.pdf","5.7 MB"]],"dli.ministry.07917":[["Part 1","books/catalog/noakhali-gazetteer-1911-part1.pdf","11.9 MB"],["Part 2","books/catalog/noakhali-gazetteer-1911-part2.pdf","14.4 MB"]],"dli.ministry.07920":[["PDF","books/catalog/tippera-gazetteer-1910.pdf","7.2 MB"]],"dli.ministry.07911":[["PDF","books/catalog/bogra-gazetteer-1910.pdf","9.7 MB"]],"dli.ministry.07919":[["PDF","books/catalog/rangpur-gazetteer-1911.pdf","8.8 MB"]],"in.ernet.dli.2015.228205":[["PDF","books/catalog/dinajpur-gazetteer-1912.pdf","14.1 MB"]],"dli.ministry.07413":[["Part 1","books/catalog/sachse-mymensingh-gazetteer-1917-part1.pdf","21.8 MB"],["Part 2","books/catalog/sachse-mymensingh-gazetteer-1917-part2.pdf","21.2 MB"],["Part 3","books/catalog/sachse-mymensingh-gazetteer-1917-part3.pdf","21.5 MB"]],"dli.ministry.07400":[["PDF","books/catalog/omalley-khulna-gazetteer-1908.pdf","11.1 MB"]],"dli.ministry.07417":[["PDF","books/catalog/omalley-pabna-gazetteer-1923.pdf","5.8 MB"]],"dli.csl.3031":[["PDF","books/catalog/omalley-rajshahi-gazetteer-1916.pdf","9.5 MB"]],"dli.ministry.07915":[["PDF","books/catalog/gruning-jalpaiguri-gazetteer-1911.pdf","8.4 MB"]],"dli.ministry.07411":[["PDF","books/catalog/omalley-murshidabad-gazetteer-1914.pdf","12.3 MB"]],"dli.ministry.07416":[["PDF","books/catalog/garrett-nadia-gazetteer-1910.pdf","10.4 MB"]],"dli.ministry.07372":[["PDF","books/catalog/omalley-24-parganas-gazetteer-1914.pdf","14.0 MB"]],"dli.csl.3116":[["PDF","books/catalog/omalley-hooghly-gazetteer-1912.pdf","18.1 MB"]],"india.history.resource.77657":[["Part 1","books/catalog/hunter-statistical-account-bengal-v5-dacca-1875-part1.pdf","21.0 MB"],["Part 2","books/catalog/hunter-statistical-account-bengal-v5-dacca-1875-part2.pdf","22.3 MB"],["Part 3","books/catalog/hunter-statistical-account-bengal-v5-dacca-1875-part3.pdf","21.6 MB"],["Part 4","books/catalog/hunter-statistical-account-bengal-v5-dacca-1875-part4.pdf","22.1 MB"]],"annalsofruralben01hunt":[["PDF","books/catalog/hunter-annals-of-rural-bengal-1868.pdf","22.9 MB"]],"TheHistoryOfBengal":[["Part 1","books/catalog/stewart-history-of-bengal-1813-part1.pdf","13.0 MB"],["Part 2","books/catalog/stewart-history-of-bengal-1813-part2.pdf","14.9 MB"]],"asketchtopograp00taylgoog":[["PDF","books/catalog/taylor-topography-statistics-dacca-1840.pdf","11.7 MB"]],"romanceofeastern00brad":[["PDF","books/catalog/bradley-birt-dacca-1906.pdf","18.4 MB"]],"districtofbkar00beve":[["Part 1","books/catalog/beveridge-bakarganj-1876-part1.pdf","13.7 MB"],["Part 2","books/catalog/beveridge-bakarganj-1876-part2.pdf","14.0 MB"]],"india.history.resource.323":[["Part 1","books/catalog/blochmann-ain-i-akbari-v1-1873-part1.pdf","20.2 MB"],["Part 2","books/catalog/blochmann-ain-i-akbari-v1-1873-part2.pdf","20.8 MB"]],"bim_eighteenth-century_a-bengal-atlas-containi_rennell-james_1781":[["Part 1","books/catalog/rennell-bengal-atlas-1781-part1.pdf","21.0 MB"],["Part 2","books/catalog/rennell-bengal-atlas-1781-part2.pdf","18.9 MB"],["Part 3","books/catalog/rennell-bengal-atlas-1781-part3.pdf","19.2 MB"],["Part 4","books/catalog/rennell-bengal-atlas-1781-part4.pdf","20.8 MB"]],"in.gov.ignca.30990":[["Part 1","books/catalog/census-india-1901-bengal-report-part1.pdf","17.2 MB"],["Part 2","books/catalog/census-india-1901-bengal-report-part2.pdf","17.3 MB"],["Part 3","books/catalog/census-india-1901-bengal-report-part3.pdf","17.6 MB"],["Part 4","books/catalog/census-india-1901-bengal-report-part4.pdf","15.4 MB"]],"india.history.resource.92556":[["Part 1","books/catalog/census-india-1911-bengal-part1-report-part1.pdf","13.2 MB"],["Part 2","books/catalog/census-india-1911-bengal-part1-report-part2.pdf","13.7 MB"],["Part 3","books/catalog/census-india-1911-bengal-part1-report-part3.pdf","12.7 MB"],["Part 4","books/catalog/census-india-1911-bengal-part1-report-part4.pdf","13.6 MB"]],"india.history.resource.92566":[["Part 1","books/catalog/census-india-1911-bengal-part2-tables-part1.pdf","13.0 MB"],["Part 2","books/catalog/census-india-1911-bengal-part2-tables-part2.pdf","13.3 MB"]],"tribesandcastes00rislgoog":[["PDF","books/catalog/risley-tribes-castes-bengal-v1-1891.pdf","13.6 MB"]],"indianmusalmans00huntgoog":[["PDF","books/catalog/hunter-indian-musalmans-1871.pdf","1.8 MB"]],"notes-on-the-races-castes-and-trades-of-eastern-bengal-by-james-wise-ed-1883":[["Part 1","books/catalog/wise-races-castes-trades-eastern-bengal-1883-part1.pdf","12.6 MB"],["Part 2","books/catalog/wise-races-castes-trades-eastern-bengal-1883-part2.pdf","11.9 MB"],["Part 3","books/catalog/wise-races-castes-trades-eastern-bengal-1883-part3.pdf","23.7 MB"]],"historyofbengali00sendrich":[["Part 1","books/catalog/sen-bengali-language-literature-1911-part1.pdf","17.0 MB"],["Part 2","books/catalog/sen-bengali-language-literature-1911-part2.pdf","15.1 MB"],["Part 3","books/catalog/sen-bengali-language-literature-1911-part3.pdf","15.2 MB"],["Part 4","books/catalog/sen-bengali-language-literature-1911-part4.pdf","15.3 MB"]],"folkliteratureof00send":[["PDF","books/catalog/sen-folk-literature-of-bengal-1920.pdf","21.1 MB"]],"easternbengalbal032892mbp":[["PDF","books/catalog/sen-eastern-bengal-ballads-mymensing-v1-1923.pdf","22.0 MB"]],"easternbengaibal11dine":[["Part 1","books/catalog/sen-eastern-bengal-ballads-v2-1926-part1.pdf","14.4 MB"],["Part 2","books/catalog/sen-eastern-bengal-ballads-v2-1926-part2.pdf","13.9 MB"],["Part 3","books/catalog/sen-eastern-bengal-ballads-v2-1926-part3.pdf","14.6 MB"],["Part 4","books/catalog/sen-eastern-bengal-ballads-v2-1926-part4.pdf","14.2 MB"]]};
+  // Reading room: hosted PDFs. [title, author, year, pages, why, files[[label, path, size]], provenance, note]
+  var READING = [
+    ["A Grammar of the Arabic Language (excerpt)","Maulavi Obaidullah al-Obaidi",1873,"3 pp.","Printed at the Baptist Mission Press, Calcutta, for students of the University of Calcutta. A record of Arabic teaching in colonial Bengal. Title pages only.",[["PDF","books/obaidullah-arabic-grammar-1873-excerpt.pdf","1.2 MB"]],"Library copy with an Imperial Library, Calcutta stamp"],
+    ["The Sayings of Muhammad","Abdullah al-Mamun Suhrawardy (comp.)",1905,"132 pp.","An early English collection of hadith by a Bengali scholar, in the Wisdom of the East series.",[["PDF","books/suhrawardy-sayings-of-muhammad-1905.pdf","5.2 MB"]],"Internet Archive scan"],
+    ["First Steps in Muslim Jurisprudence","A. D. Russell and Abdullah al-Mamun Suhrawardy",1911,"137 pp.","Excerpts from the Bakurat al-Sa'd of Ibn Abu Zayd, with Arabic text, English translation and notes.",[["PDF","books/russell-suhrawardy-muslim-jurisprudence-1911.pdf","7.3 MB"]],"Digital copy of the 1911 edition"],
+    ["Calcutta and Environs","Hassan Suhrawardy",1925,"179 pp.","An illustrated guide to the city, with period portraits and views of its temples, mosques and streets. Split into two files for download.",[["Part 1","books/suhrawardy-calcutta-and-environs-1925-part1.pdf","9.0 MB"],["Part 2","books/suhrawardy-calcutta-and-environs-1925-part2.pdf","7.9 MB"]],"Scanned copy"],
+    ["A Manual of First Aid for India (2nd ed.)","Hassan Suhrawardy",1927,"374 pp.","A public-health handbook by a Bengali physician, with diagrams. A window on medical practice in 1920s India.",[["PDF","books/suhrawardy-first-aid-for-india-1927.pdf","12.4 MB"]],"Internet Archive scan"]
+  ];
+  var TIMELINE = [
+    ["1576","Mughal armies take Bengal","Bengal becomes a Subah of the empire. See the Ain-i-Akbari."],
+    ["1757","Battle of Plassey","The East India Company gains control of Bengal's politics."],
+    ["1765","Company receives the Diwani","The right to collect revenue. Land records and surveys grow from here."],
+    ["1793","Permanent Settlement","Fixes land revenue and creates the zamindari system behind many later land disputes."],
+    ["1858","Crown takes over from the Company","Direct British rule begins."],
+    ["1905","Partition of Bengal","The new province of Eastern Bengal and Assam is formed, with Dacca as its capital."],
+    ["1911","Partition annulled","The province of Eastern Bengal and Assam, behind many gazetteers, is dissolved in 1912. The imperial capital moves to Delhi."],
+    ["1947","Partition of India","Bengal is divided. The east becomes East Pakistan."],
+    ["1952","Language Movement","Protests for Bengali as a state language. Remembered each 21 February."],
+    ["1971","Independence of Bangladesh","Born from the Liberation War."]
+  ];
+  // Unpublished family papers: closed until the family approves. Names withheld for now.
+  var PAPERS = [
+    ["A Calcutta lawyer's diary",1927,"A printed lawyer's diary for 1927 with handwritten entries in English on court work in Calcutta and Alipore. 118 pages."],
+    ["Annotated pocket calendar",1913,"An insurance company's 1913 calendar with daily handwritten notes."],
+    ["Letter about a court hearing",1913,"A letter dated 5 January 1913."]
+  ];
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function card(o) {
+    var c = el("article", "card");
+    var h = el("div", "head");
+    h.appendChild(el("span", "call", o.call));
+    var s = el("span", "stamp " + o.access, o.access === "request" ? "By request" : o.access);
+    h.appendChild(s);
+    c.appendChild(h);
+    var t = el("h3");
+    if (o.url) { var a = el("a", null, o.title); a.href = o.url; a.target = "_blank"; a.rel = "noopener"; t.appendChild(a); }
+    else t.textContent = o.title;
+    if (o.star) { var st = el("span", null, " ★"); st.setAttribute("aria-label", "recommended first"); st.style.color = "var(--jute)"; t.appendChild(st); }
+    c.appendChild(t);
+    if (o.by) c.appendChild(el("p", "by", o.by + " · " + o.year));
+    c.appendChild(el("p", "why", o.why));
+    if (o.note) c.appendChild(el("p", "note", "Context: " + o.note));
+    var f = el("div", "foot");
+    o.foot.forEach(function (x) { f.appendChild(el("span", null, x)); });
+    c.appendChild(f);
+    return c;
+  }
+
+  function fileButtons(title, files) {
+    var btns = el("div", "btns");
+    files.forEach(function (f, k) {
+      var read = el("a", "btn" + (k === 0 ? " solid" : ""), "Read " + f[0] + " · " + f[2]); read.href = f[1]; read.target = "_blank"; read.rel = "noopener";
+      btns.appendChild(read);
+      var dl = el("a", "btn", "Download"); dl.href = f[1]; dl.setAttribute("download", ""); dl.setAttribute("aria-label", "Download " + title + " " + f[0]);
+      btns.appendChild(dl);
+    });
+    return btns;
+  }
+
+  var drawer = document.getElementById("drawer");
+  var seq = {};
+  var items = BOOKS.map(function (b) {
+    seq[b[0]] = (seq[b[0]] || 0) + 1;
+    var pg = b[5].indexOf("gutenberg") > -1;
+    var node = card({
+      call: "BHA·" + b[0] + "·" + b[3] + "·" + String(seq[b[0]]).padStart(2, "0"),
+      access: "open", title: b[1], by: b[2], year: b[3], why: b[4], url: b[5], star: b[6], note: b[7],
+      foot: [THEMES[b[0]], pg ? "Project Gutenberg" : "Internet Archive scan", "Public domain (pre-1931)"]
+    });
+    var fl = FILES[b[5].split("/").pop()];
+    if (fl) node.appendChild(fileButtons(b[1], fl));
+    return { theme: b[0], node: node };
+  });
+  items.forEach(function (i) { drawer.appendChild(i.node); });
+  document.getElementById("fact-books").textContent = BOOKS.length;
+
+  var filters = document.getElementById("filters"), count = document.getElementById("count");
+  var buttons = [];
+  function apply(theme) {
+    var n = 0;
+    items.forEach(function (i) { var show = theme === "ALL" || i.theme === theme; i.node.hidden = !show; if (show) n++; });
+    buttons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.t === theme)); });
+    count.textContent = n + (n === 1 ? " book" : " books") + (theme === "ALL" ? " in the catalog" : " in " + THEMES[theme]);
+  }
+  [["ALL", "All"]].concat(Object.keys(THEMES).map(function (k) { return [k, THEMES[k]]; })).forEach(function (p) {
+    var b = el("button", null, p[1]); b.type = "button"; b.dataset.t = p[0];
+    b.addEventListener("click", function () { apply(p[0]); });
+    buttons.push(b); filters.appendChild(b);
+  });
+  apply("ALL");
+
+  var reading = document.getElementById("reading");
+  READING.forEach(function (r, i) {
+    var c = card({ call: "BHA·READ·" + r[2] + "·" + String(i + 1).padStart(2, "0"), access: "open",
+      title: r[0], by: r[1], year: r[2], why: r[4], foot: [r[3], r[6], "Public domain (pre-1931)"] });
+    c.appendChild(fileButtons(r[0], r[5]));
+    reading.appendChild(c);
+  });
+  var tl = document.getElementById("tl");
+  TIMELINE.forEach(function (t) {
+    var li = el("li"); li.appendChild(el("span", "yr", t[0]));
+    var ev = el("span", "ev"); ev.appendChild(document.createTextNode(t[1])); ev.appendChild(el("small", null, t[2])); li.appendChild(ev); tl.appendChild(li);
+  });
+  var papers = document.getElementById("papers");
+  PAPERS.forEach(function (p, i) {
+    papers.appendChild(card({ call: "BHA·FAM·" + p[1] + "·" + String(i + 1).padStart(2, "0"), access: "closed",
+      title: p[0] + ", " + p[1], why: p[2], foot: ["Unpublished manuscript", "Awaiting family consent"] }));
+  });
+
+  var copy = document.getElementById("copy"), email = document.getElementById("email");
+  copy.addEventListener("click", function () {
+    var done = function () { copy.textContent = "Copied"; setTimeout(function () { copy.textContent = "Copy address"; }, 1800); };
+    try {
+      navigator.clipboard.writeText(email.textContent).then(done, function () { selectEmail(); });
+    } catch (e) { selectEmail(); }
+  });
+  function selectEmail() { var r = document.createRange(); r.selectNodeContents(email); var s = getSelection(); s.removeAllRanges(); s.addRange(r); copy.textContent = "Press Ctrl+C to copy"; }
+})();
+</script>
+</body>
+</html>
